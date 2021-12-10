@@ -1,0 +1,20 @@
+.top-banner{
+    background: linear-gradient(to right, #8888f2, #62609c), url(https://demo2.listivotheme.com/wp-content/uploads/2021/11/bg-city-night-1.jpg);
+}
+.top-banner input{
+    padding: 13px 0;
+    border: none;
+}
+.suggest{
+    max-width: 340px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.brands-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+}
