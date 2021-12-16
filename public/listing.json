@@ -1,0 +1,20 @@
+[
+    {
+        "image": "https://classic.listingprowp.com/wp-content/uploads/2017/01/Fotolia_139342035_Subscription_Monthly_M-372x400.jpg",
+        "title": "Shoreline Village",
+        "investment": "Real Estate",
+        "location": "Austin"
+    },
+    {
+        "image": "https://classic.listingprowp.com/wp-content/uploads/2017/03/sushi0-372x400.jpg",
+        "title": "Sushi Kashiba",
+        "investment": "Restaurant",
+        "location": "Stattle"
+    },
+    {
+        "image": "https://classic.listingprowp.com/wp-content/uploads/2017/01/Fotolia_86726808_Subscription_Monthly_M1-372x400.jpg",
+        "title": "The Mark Hotel",
+        "investment": "Restaurant",
+        "location": "New York"
+    }
+]
