@@ -7,7 +7,6 @@ import "swiper/modules/navigation/navigation";
 import "swiper/modules/pagination/pagination";
 import { Container, Card } from 'react-bootstrap';
 import './Testimonial.css';
-import { styles } from 'dom7';
 
 const Testimonial = () => {
     const [testimonial, setTestimonial] = useState([]);
