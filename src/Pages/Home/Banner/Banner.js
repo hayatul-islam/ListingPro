@@ -36,13 +36,13 @@ const Banner = () => {
                             </InputGroup>
 
                             <InputGroup className="mb-3">
-                                <InputGroup.Text className="bg-white border-0 py-2" id="basic-addon1">What</InputGroup.Text>
+                                <InputGroup.Text className="bg-white border-0 py-2" id="basic-addon1">Where</InputGroup.Text>
                                 <FormControl className="border-0"
                                     placeholder="Username"
                                     aria-label="Username"
                                     aria-describedby="basic-addon1"
                                 />
-                                <InputGroup.Text className="bg-primary text-white" id="basic-addon1">What</InputGroup.Text>
+                                <InputGroup.Text className="bg-primary text-white" id="basic-addon1"><i className="fas fa-search"></i></InputGroup.Text>
                             </InputGroup>
                         </div>
                     </Col>
