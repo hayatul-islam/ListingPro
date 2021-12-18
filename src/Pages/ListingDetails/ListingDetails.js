@@ -8,7 +8,7 @@ const ListingDetails = () => {
     const [singleListing, setSingleListing] = useState({});
     const { image, title } = singleListing;
     useEffect(() => {
-        fetch('http://localhost:4040/listing')
+        fetch('https://boiling-taiga-51973.herokuapp.com/listing')
             .then(res => res.json())
             .then(data => {
                 const findListing = data.find(listing => listing?._id === listingId);
