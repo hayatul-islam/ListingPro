@@ -1,7 +1,12 @@
 import React from 'react';
 import { Container, Image, Nav, Navbar, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate()
+    const handleAddListing = () => {
+        navigate('/addListing')
+    }
     return (
         <div>
             <Navbar expand="lg">
@@ -18,7 +23,7 @@ const Header = () => {
                             <Nav.Link className="text-white" href="#home">Blog</Nav.Link>
                             <Nav.Link className="text-white" href="#home">Contact Us</Nav.Link>
                         </Nav>
-                        <Button variant="outline-light">Add Listing</Button>
+                        <Button onClick={handleAddListing} variant="outline-light">Add Listing</Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

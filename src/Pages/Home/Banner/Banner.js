@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, InputGroup, FormControl, Image } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 import Header from '../../Sharded/Header/Header';
 import Brand from '../Brand/Brand';
 import './Banner.css';
@@ -10,7 +11,10 @@ const Banner = () => {
         fetch('brand.json')
             .then(res => res.json())
             .then(data => setBrands(data))
-    }, [])
+    }, []);
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
     return (
         <div className="pb-5 pt-3 top-banner">
             <Container>
@@ -27,19 +31,18 @@ const Banner = () => {
 
                         <div className="d-flex">
                             <InputGroup className="mb-3 me-3">
-                                <InputGroup.Text className="border-0 bg-white" id="basic-addon1">What</InputGroup.Text>
-                                <FormControl
-                                    placeholder="Username"
-                                    aria-label="Username"
+                                <InputGroup.Text className="bg-white border-0 py-2" id="basic-addon1">What</InputGroup.Text>
+                                <FormControl className="border-0"
+                                    placeholder="Services"
+                                    aria-label="Services"
                                     aria-describedby="basic-addon1"
                                 />
                             </InputGroup>
-
                             <InputGroup className="mb-3">
                                 <InputGroup.Text className="bg-white border-0 py-2" id="basic-addon1">Where</InputGroup.Text>
                                 <FormControl className="border-0"
-                                    placeholder="Username"
-                                    aria-label="Username"
+                                    placeholder="Your City"
+                                    aria-label="location"
                                     aria-describedby="basic-addon1"
                                 />
                                 <InputGroup.Text className="bg-primary text-white" id="basic-addon1"><i className="fas fa-search"></i></InputGroup.Text>

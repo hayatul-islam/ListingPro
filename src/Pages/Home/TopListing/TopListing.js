@@ -1,14 +1,21 @@
 
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const TopListing = () => {
     const [topListing, setTopListing] = useState([]);
     useEffect(() => {
-        fetch('listing.json')
+        fetch('http://localhost:4040/listing')
             .then(res => res.json())
             .then(data => setTopListing(data))
     }, []);
+
+    const navigate = useNavigate();
+    const handleListingDetails = id => {
+        navigate(`/listingDetails/${id}`)
+        console.log(id);
+    }
     return (
         <div className="py-5">
             <Container>
@@ -18,8 +25,10 @@ const TopListing = () => {
                 </div>
                 <Row>
                     {
-                        topListing.map(listing => <Col xs={12} md={4}>
-                            <Card>
+                        topListing.map(listing => <Col
+                            key={listing?._id}
+                            xs={12} md={4}>
+                            <Card onClick={() => handleListingDetails(listing?._id)}>
                                 <Card.Img variant="top" src={listing?.image} />
                                 <Card.Body>
                                     <Card.Title>{listing?.title}</Card.Title>
