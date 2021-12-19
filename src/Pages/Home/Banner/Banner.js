@@ -8,13 +8,12 @@ import './Banner.css';
 const Banner = () => {
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch('brand.json')
+        fetch('https://boiling-taiga-51973.herokuapp.com/brands')
             .then(res => res.json())
             .then(data => setBrands(data))
     }, []);
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+
     return (
         <div className="pb-5 pt-3 top-banner">
             <Container>

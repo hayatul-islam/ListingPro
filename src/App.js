@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import ListingDetails from './Pages/ListingDetails/ListingDetails';
 import AddListing from './Pages/AddListing/AddListing';
+import BrandDetail from './Pages/BrandDetail/BrandDetail';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="addListing" element={<AddListing />} />
+          <Route path="brandDetail/:brandTitle" element={<BrandDetail />} />
         </Routes>
       </BrowserRouter>
     </div>

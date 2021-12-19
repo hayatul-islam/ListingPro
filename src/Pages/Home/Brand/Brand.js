@@ -1,15 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Brand.css';
 
 const Brand = ({ brand }) => {
 
+    const navigate = useNavigate();
+    const brandDetail = (title) => {
+        navigate(`brandDetail/${title}`);
+    }
 
     return (
-        <div className="brand-container py-4 mx-2">
-
+        <div onClick={() => brandDetail(brand?.title)} className="brand-container py-4 mx-2">
             <img src={brand?.image} />
             <h6 className="pt-3">{brand?.title}</h6>
-
         </div>
     );
 };
