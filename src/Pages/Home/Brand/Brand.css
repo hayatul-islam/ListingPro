@@ -1,10 +1,10 @@
 
 .brand-container{
-    background: rgba(59,136,221,0.4);
+    background: rgb(15 20 25 / 40%);
     color: white;
 }
 .brand-container:hover{
-    background: rgba(112, 158, 207, 0.4);
+    background: rgba(15, 13, 29, 0.61);
 }
 .brand-container img{
     width: 35px;

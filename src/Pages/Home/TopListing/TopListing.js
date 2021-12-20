@@ -7,6 +7,7 @@ const TopListing = () => {
     const [topListing, setTopListing] = useState([]);
     useEffect(() => {
         fetch('https://boiling-taiga-51973.herokuapp.com/listing')
+            // fetch('listing.json')
             .then(res => res.json())
             .then(data => setTopListing(data))
     }, []);
@@ -27,20 +28,21 @@ const TopListing = () => {
                     {
                         topListing.map(listing => <Col
                             key={listing?._id}
-                            xs={12} md={4}>
+                            xs={12} md={3}>
                             <Card onClick={() => handleListingDetails(listing?._id)}>
-                                <Card.Img variant="top" src={listing?.image} />
+                                <Card.Img className='img-fluid' variant="top" src={listing?.image} />
                                 <Card.Body>
                                     <Card.Title>{listing?.title}</Card.Title>
                                     <Card.Text>
-                                        <span>{listing?.location}</span> | <span>{listing?.investment}</span>
+                                        <p>{listing?.description.slice(0, 120)} more...</p>
+                                        <h6>Cash Required <span className='fs-5'>${listing?.minCash}</span></h6>
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
                         </Col>)
                     }
                     <div className="text-center mt-4">
-                        <Button className="px-5 py-3 rounded-pill" variant="secondary">All Listing</Button>
+                        <Button className="px-5 py-3 rounded-pill" variant="secondary">View All Listing</Button>
                     </div>
                 </Row>
             </Container>

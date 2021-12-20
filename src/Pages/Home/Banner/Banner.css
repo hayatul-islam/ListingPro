@@ -1,10 +1,8 @@
 .top-banner{
-    background: linear-gradient(to right, #8888f2, #62609c), url(https://demo2.listivotheme.com/wp-content/uploads/2021/11/bg-city-night-1.jpg);
+    background: url(https://st4.depositphotos.com/24046444/25509/v/600/depositphotos_255095564-stock-video-abstract-animated-business-presentation-background.jpg);
+    background-size: cover;
 }
-.top-banner input{
-    padding: 13px 0;
-    border: none;
-}
+
 .suggest{
     max-width: 340px;
     display: flex;
@@ -14,7 +12,7 @@
 
 .brands-container{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 800px;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 1200px;
     margin: 0 auto;
 }

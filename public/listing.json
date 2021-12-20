@@ -1,20 +1,42 @@
 [
     {
-        "image": "https://classic.listingprowp.com/wp-content/uploads/2017/01/Fotolia_139342035_Subscription_Monthly_M-372x400.jpg",
-        "title": "Shoreline Village",
-        "investment": "Real Estate",
-        "location": "Austin"
+        "image": "https://i.ibb.co/Jqsn30t/all-county-property-management-250x150.png",
+        "title": "All County Property",
+        "investment": "$66,950 – $98,900",
+        "minCash": "70,000",
+        "totalCash": "100,000",
+        "description": "With 30 years of experience, All County Property Management has helped hundreds of people find their potential. A successful candidate has a desire to excel, discipline to execute consistently, & dedication to growing themselves & their business. Learn more about the costs, benefits, and available locations today!",
+        "location": "Austin",
+        "category": "Advertising"
     },
     {
-        "image": "https://classic.listingprowp.com/wp-content/uploads/2017/03/sushi0-372x400.jpg",
-        "title": "Sushi Kashiba",
-        "investment": "Restaurant",
-        "location": "Stattle"
+        "image": "https://i.ibb.co/nMjRGhd/healthier4u-vending-250x150.png",
+        "title": "Healthier4U Vending",
+        "investment": "$23,950 – $140,900",
+        "minCash": "30,000",
+        "totalCash": "80,000",
+        "description": "Are you passionate about owning your own business? Are you interested in giving people the choice to eat healthy? If the answer is yes, then you have found the right partner to build you a successful healthy vending business. At Healthier4U Vending we share your passion and want you to join us to give the choice to eat healthy to everyone.",
+        "location": "Stattle",
+        "category": "Health + Fitness"
     },
     {
-        "image": "https://classic.listingprowp.com/wp-content/uploads/2017/01/Fotolia_86726808_Subscription_Monthly_M1-372x400.jpg",
-        "title": "The Mark Hotel",
-        "investment": "Restaurant",
-        "location": "New York"
+        "image": "https://i.ibb.co/Zf6Q8K0/healthyyou-vending-250x150.png",
+        "title": "Healthy YOU Vending",
+        "investment": "$69,950 – $160,900",
+        "minCash": "90,000",
+        "totalCash": "130,000",
+        "description": "Join the healthy vending revolution with Healthy YOU Vending! Since 1999 we have helped thousands of operators position themselves in their respective markets as vending professionals in this exciting $43+ Billion dollar industry. The demand for healthy food choices is exploding. We can help secure your locations. Don’t miss this opportunity!",
+        "location": "New York",
+        "category": "Health + Fitness"
+    },
+    {
+        "image": "https://i.ibb.co/kS4GPXJ/mobility-plus-250x150.png",
+        "title": "Mobility Plus",
+        "investment": "$40,950 – $110,900",
+        "minCash": "50,000",
+        "totalCash": "80,000",
+        "description": "Mobility Plus provides a variety of products to help Americans aged 65+ and those with disabilities to age in place. The number of Americans aged 65+ is set to double by 2030 and there are 17.1 million Americans who have difficulty walking and navigating stairs. Take advantage of this franchise opportunity in a growing and vital industry.",
+        "location": "New York",
+        "category": "Advertising"
     }
 ]
