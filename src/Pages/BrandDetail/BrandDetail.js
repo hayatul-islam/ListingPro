@@ -17,10 +17,10 @@ const BrandDetail = () => {
 
     return (
         <div className='px-3 py-5'>
-            <h3>brand details</h3>
+            <h3>Coning soon</h3>
             <Row>
                 <Col xs={12} md={3}>
-                    <h3>Listing</h3>
+
                 </Col>
                 <Col xs={12} md={9}>
                     <Row>

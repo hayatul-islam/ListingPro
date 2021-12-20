@@ -32,7 +32,7 @@ const Banner = () => {
 
     return (
         <div>
-            <div className="pb-5 pt-3 top-banner">
+            <div className=" pt-3 top-banner">
                 <Container>
                     <div className="pb-5">
                         <Header />
@@ -40,33 +40,41 @@ const Banner = () => {
 
                     <Row>
                         <Col xs={12} md={6}>
-                            <div className='text-white pb-3'>
-                                <h2>Find your Listing</h2>
-                            </div>
-                            <div className='d-flex'>
-                                <form onSubmit={handleSubmit(onSubmit)}>
-                                    <select className='w-100 p-2 mb-2' {...register("category")} name="category" id="">
-                                        <option value="default">Select Category</option>
-                                        {
-                                            brands.map(brand => <option value={brand?.title} >
-                                                {brand?.title}
-                                            </option>)
-                                        }
-                                    </select>
-                                    <select className='w-100 p-2 mb-2' {...register("investment")} name="investment" id="">
-                                        <option value="default">Investment</option>
-                                        <option value="1000">Under $1000</option>
-                                        <option value="2000">Under $2000</option>
-                                        <option value="3000">Under $3000</option>
-                                    </select>
-                                    <input className='py-2 w-75' {...register("inputSearch")} type="search" name="inputSearch" id="" placeholder='Search for...' />
-                                    <input onClick={() => handleSearch(searchData?.category)} className='w-25 py-2' type="submit" value="Search" />
-
-                                </form>
+                            <div className=''>
+                                <div className='text-white pb-3'>
+                                    <h2>Find your Listing</h2>
+                                </div>
+                                <div className=''>
+                                    <form onSubmit={handleSubmit(onSubmit)}>
+                                        <select className='w-100 p-2 mb-2' {...register("category")} name="category" id="">
+                                            <option value="default">Select Category</option>
+                                            {
+                                                brands.map(brand => <option value={brand?.title} >
+                                                    {brand?.title}
+                                                </option>)
+                                            }
+                                        </select>
+                                        <select className='w-100 p-2 mb-2' {...register("investment")} name="investment" id="">
+                                            <option value="default">Investment</option>
+                                            <option value="1000">Under $1000</option>
+                                            <option value="2000">Under $2000</option>
+                                            <option value="3000">Under $3000</option>
+                                        </select>
+                                        <input className='py-2 w-75' {...register("inputSearch")} type="search" name="inputSearch" id="" placeholder='Search for...' />
+                                        <input onClick={() => handleSearch(searchData?.category)} className='w-25 py-2' type="submit" value="Search" />
+                                    </form>
+                                </div>
                             </div>
                         </Col>
                         <Col xs={12} md={6}>
-                            <img className='w-100 rounded' src="https://baloo.rs/wp-content/uploads/2020/10/internet-marketing-2.jpg" alt="" />
+
+                            {/* <img className='w-100 rounded' src="https://i.ibb.co/L1Q3FBn/two-business-partners-handshaking-74855-6685-removebg-preview.png" alt="" /> */}
+                            {/* <img className='w-100 rounded' src="https://i.ibb.co/Y2zHb1c/coach-speaking-before-audience-mentor-presenting-charts-reports-employees-meeting-business-training.png" alt="" /> */}
+                            {/* <img className='w-100 rounded' src="https://lh3.googleusercontent.com/proxy/30uvBnwUVsa8RwaCwccou5ieLx47JCGBbS_-pHsZ_PMlbi1nfhg_VOm04uhR25J3xYBX_AjbZlNeG-Acu4Nxvd3UCsrgjI4gwMuBfFegjwzCmnF8O85SVQpLz2iH" alt="" /> */}
+                            {/* <img className='w-100 rounded' src="https://www.pngall.com/wp-content/uploads/2016/06/Business-PNG-Clipart.png" alt="" /> */}
+                            <div>
+                                <img className='w-100 rounded' src="https://www.pngall.com/wp-content/uploads/2016/06/Business-Free-Download-PNG.png" alt="" />
+                            </div>
                         </Col>
 
                     </Row>

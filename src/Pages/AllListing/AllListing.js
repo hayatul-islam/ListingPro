@@ -1,18 +1,16 @@
-
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const TopListing = () => {
+const AllListing = () => {
 
-    const [topListing, setTopListing] = useState([]);
+    const [listing, setListing] = useState([]);
     const navigate = useNavigate();
-
     useEffect(() => {
         fetch('https://boiling-taiga-51973.herokuapp.com/listing')
             // fetch('listing.json')
             .then(res => res.json())
-            .then(data => setTopListing(data))
+            .then(data => setListing(data))
     }, []);
 
     const handleListingDetails = id => {
@@ -20,20 +18,15 @@ const TopListing = () => {
         console.log(id);
     }
 
-    const handleAllListing = () => {
-        navigate('/allListing')
-    }
-
     return (
-        <div className="py-5">
+        <div className='py-5'>
             <Container>
-                <div className="text-center py-5">
-                    <h2>Top Listing</h2>
-                    <p>Popular Exclusive Listings In Our Directory</p>
-                </div>
                 <Row>
+                    <div className='pb-5 text-center'>
+                        <h1>All Listing</h1>
+                    </div>
                     {
-                        topListing.map(listing => <Col
+                        listing.map(listing => <Col
                             key={listing?._id}
                             xs={12} md={3}>
                             <Card onClick={() => handleListingDetails(listing?._id)}>
@@ -48,13 +41,11 @@ const TopListing = () => {
                             </Card>
                         </Col>)
                     }
-                    <div className="text-center mt-4">
-                        <Button onClick={handleAllListing} className="px-5 py-3 rounded-pill" variant="secondary">View All Listing</Button>
-                    </div>
+
                 </Row>
             </Container>
         </div>
     );
 };
 
-export default TopListing;
+export default AllListing;
