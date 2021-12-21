@@ -12,7 +12,9 @@ const TopListing = () => {
         fetch('https://boiling-taiga-51973.herokuapp.com/listing')
             // fetch('listing.json')
             .then(res => res.json())
-            .then(data => setTopListing(data))
+            .then(data => {
+                setTopListing(data.slice(0, 4))
+            })
     }, []);
 
     const handleListingDetails = id => {
