@@ -2,12 +2,31 @@
     background: url(https://st4.depositphotos.com/24046444/25509/v/600/depositphotos_255095564-stock-video-abstract-animated-business-presentation-background.jpg);
     background-size: cover;
 }
-
-.suggest{
-    max-width: 340px;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
+.find-listing{
+    max-width: 507px;
+    background-color: #04203d;
+    padding: 40px 20px;
+    border-radius: 20px;
+}
+.find-listing select, .inputSearch{
+    background-color: #05203d;
+    color: white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding-bottom: 10px;
+}
+.search-container{
+    position: relative;
+}
+.submitBtn{
+    position: absolute;
+    background: none;
+    color: white;
+    border: none;
+    top: 16px;
+    right: -4px;
+    font-size: 16px;
 }
 
 .brands-container{
@@ -15,6 +34,7 @@
     grid-template-columns: repeat(7, 1fr);
     max-width: 1200px;
     margin: 0 auto;
+    /* background-color: #04203d; */
 }
 
 

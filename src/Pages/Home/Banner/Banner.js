@@ -40,7 +40,7 @@ const Banner = () => {
 
                     <Row>
                         <Col xs={12} md={6}>
-                            <div className=''>
+                            <div className='find-listing'>
                                 <div className='text-white pb-3'>
                                     <h2>Find your Listing</h2>
                                 </div>
@@ -60,8 +60,10 @@ const Banner = () => {
                                             <option value="2000">Under $2000</option>
                                             <option value="3000">Under $3000</option>
                                         </select>
-                                        <input className='py-2 w-75' {...register("inputSearch")} type="search" name="inputSearch" id="" placeholder='Search for...' />
-                                        <input onClick={() => handleSearch(searchData?.category)} className='w-25 py-2' type="submit" value="Search" />
+                                        <div className='search-container'>
+                                            <input className='p-2 w-100 inputSearch' {...register("inputSearch")} type="search" name="inputSearch" id="" placeholder='Search for...' />
+                                            <button onClick={() => handleSearch(searchData?.category)} type='submit' className="submitBtn"><i class="fas fa-search"></i></button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

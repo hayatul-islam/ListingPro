@@ -11,6 +11,7 @@ import ListingDetails from './Pages/ListingDetails/ListingDetails';
 import AddListing from './Pages/AddListing/AddListing';
 import BrandDetail from './Pages/BrandDetail/BrandDetail';
 import AllListing from './Pages/AllListing/AllListing';
+import Contact from './Pages/Contact/Contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="addListing" element={<AddListing />} />
           <Route path="brandDetail/:brandTitle" element={<BrandDetail />} />

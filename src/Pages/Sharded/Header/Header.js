@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Image, Nav, Navbar, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
     const navigate = useNavigate()
@@ -17,11 +18,11 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link className="text-white" href="#home">Home</Nav.Link>
-                            <Nav.Link className="text-white" href="#home">Category</Nav.Link>
-                            <Nav.Link className="text-white" href="#home">Explore</Nav.Link>
-                            <Nav.Link className="text-white" href="#home">Blog</Nav.Link>
-                            <Nav.Link className="text-white" href="#home">Contact Us</Nav.Link>
+                            <NavLink className="text-white" to="">Home</NavLink>
+                            <NavLink className="text-white" to="">Category</NavLink>
+                            <NavLink className="text-white" to="">Blog</NavLink>
+                            <NavLink className="text-white" to="">Explore</NavLink>
+                            <NavLink className="text-white" to='/contact'>Contact Us</NavLink>
                         </Nav>
                         <Button onClick={handleAddListing} variant="outline-light">Add Listing</Button>
                     </Navbar.Collapse>
