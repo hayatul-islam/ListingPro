@@ -12,7 +12,7 @@ const Listing = ({ listing }) => {
 
 
     return (
-        <Card onClick={() => handleListingDetails(listing?._id)}>
+        <Card className='my-2' onClick={() => handleListingDetails(listing?._id)}>
             <Card.Img className='img-fluid' variant="top" src={listing?.image} />
             <Card.Body>
                 <Card.Title>{listing?.title}</Card.Title>

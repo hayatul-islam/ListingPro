@@ -27,9 +27,8 @@ const FindSearchListing = () => {
     console.log(search);
 
     return (
-        <div>
+        <div className='py-5'>
             <Container>
-                <h1>add</h1>
                 <SearchListing />
                 <Row>
                     {
