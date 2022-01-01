@@ -21,7 +21,9 @@ const BrandDetail = () => {
     return (
         <div className='px-3 py-5'>
             <Container>
-                <SearchListing />
+                <div>
+                    <SearchListing />
+                </div>
                 <Row>
                     {
                         brandDetails.map(listing => <Col
