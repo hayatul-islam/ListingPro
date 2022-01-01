@@ -7,7 +7,8 @@
         "totalCash": "100,000",
         "description": "With 30 years of experience, All County Property Management has helped hundreds of people find their potential. A successful candidate has a desire to excel, discipline to execute consistently, & dedication to growing themselves & their business. Learn more about the costs, benefits, and available locations today!",
         "location": "Austin",
-        "category": "Advertising"
+        "category": "Advertising",
+        "sub_category": "Automotive Franchises"
     },
     {
         "image": "https://i.ibb.co/nMjRGhd/healthier4u-vending-250x150.png",
@@ -17,7 +18,8 @@
         "totalCash": "80,000",
         "description": "Are you passionate about owning your own business? Are you interested in giving people the choice to eat healthy? If the answer is yes, then you have found the right partner to build you a successful healthy vending business. At Healthier4U Vending we share your passion and want you to join us to give the choice to eat healthy to everyone.",
         "location": "Stattle",
-        "category": "Health + Fitness"
+        "category": "Health + Fitness",
+        "sub_category": "Auto Franchises"
     },
     {
         "image": "https://i.ibb.co/Zf6Q8K0/healthyyou-vending-250x150.png",
@@ -27,7 +29,8 @@
         "totalCash": "130,000",
         "description": "Join the healthy vending revolution with Healthy YOU Vending! Since 1999 we have helped thousands of operators position themselves in their respective markets as vending professionals in this exciting $43+ Billion dollar industry. The demand for healthy food choices is exploding. We can help secure your locations. Don’t miss this opportunity!",
         "location": "New York",
-        "category": "Health + Fitness"
+        "category": "Health + Fitness",
+        "sub_category": "Auto Franchises"
     },
     {
         "image": "https://i.ibb.co/kS4GPXJ/mobility-plus-250x150.png",
@@ -37,6 +40,106 @@
         "totalCash": "80,000",
         "description": "Mobility Plus provides a variety of products to help Americans aged 65+ and those with disabilities to age in place. The number of Americans aged 65+ is set to double by 2030 and there are 17.1 million Americans who have difficulty walking and navigating stairs. Take advantage of this franchise opportunity in a growing and vital industry.",
         "location": "New York",
-        "category": "Advertising"
+        "category": "Advertising",
+        "sub_category": "Business Opportunities"
+    },
+    {
+        "image": "https://i.ibb.co/nMjRGhd/healthier4u-vending-250x150.png",
+        "title": "Healthier4U Vending",
+        "investment": "$23,950 – $140,900",
+        "minCash": "30,000",
+        "totalCash": "80,000",
+        "description": "Are you passionate about owning your own business? Are you interested in giving people the choice to eat healthy? If the answer is yes, then you have found the right partner to build you a successful healthy vending business. At Healthier4U Vending we share your passion and want you to join us to give the choice to eat healthy to everyone.",
+        "location": "Stattle",
+        "category": "Health + Fitness",
+        "sub_category": "Automotive Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/kS4GPXJ/mobility-plus-250x150.png",
+        "title": "Mobility Plus",
+        "investment": "$40,950 – $110,900",
+        "minCash": "50,000",
+        "totalCash": "80,000",
+        "description": "Mobility Plus provides a variety of products to help Americans aged 65+ and those with disabilities to age in place. The number of Americans aged 65+ is set to double by 2030 and there are 17.1 million Americans who have difficulty walking and navigating stairs. Take advantage of this franchise opportunity in a growing and vital industry.",
+        "location": "New York",
+        "category": "Advertising",
+        "sub_category": "Child Related Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/Zf6Q8K0/healthyyou-vending-250x150.png",
+        "title": "Healthy YOU Vending",
+        "investment": "$69,950 – $160,900",
+        "minCash": "90,000",
+        "totalCash": "130,000",
+        "description": "Join the healthy vending revolution with Healthy YOU Vending! Since 1999 we have helped thousands of operators position themselves in their respective markets as vending professionals in this exciting $43+ Billion dollar industry. The demand for healthy food choices is exploding. We can help secure your locations. Don’t miss this opportunity!",
+        "location": "New York",
+        "category": "Health + Fitness",
+        "sub_category": "Beauty Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/Jqsn30t/all-county-property-management-250x150.png",
+        "title": "All County Property",
+        "investment": "$66,950 – $98,900",
+        "minCash": "70,000",
+        "totalCash": "100,000",
+        "description": "With 30 years of experience, All County Property Management has helped hundreds of people find their potential. A successful candidate has a desire to excel, discipline to execute consistently, & dedication to growing themselves & their business. Learn more about the costs, benefits, and available locations today!",
+        "location": "Austin",
+        "category": "Advertising",
+        "sub_category": "Business Services Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/nMjRGhd/healthier4u-vending-250x150.png",
+        "title": "Healthier4U Vending",
+        "investment": "$23,950 – $140,900",
+        "minCash": "30,000",
+        "totalCash": "80,000",
+        "description": "Are you passionate about owning your own business? Are you interested in giving people the choice to eat healthy? If the answer is yes, then you have found the right partner to build you a successful healthy vending business. At Healthier4U Vending we share your passion and want you to join us to give the choice to eat healthy to everyone.",
+        "location": "Stattle",
+        "category": "Health + Fitness",
+        "sub_category": "Child Related Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/nMjRGhd/healthier4u-vending-250x150.png",
+        "title": "Healthier4U Vending",
+        "investment": "$23,950 – $140,900",
+        "minCash": "30,000",
+        "totalCash": "80,000",
+        "description": "Are you passionate about owning your own business? Are you interested in giving people the choice to eat healthy? If the answer is yes, then you have found the right partner to build you a successful healthy vending business. At Healthier4U Vending we share your passion and want you to join us to give the choice to eat healthy to everyone.",
+        "location": "Stattle",
+        "category": "Health + Fitness",
+        "sub_category": "Education Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/Zf6Q8K0/healthyyou-vending-250x150.png",
+        "title": "Healthy YOU Vending",
+        "investment": "$69,950 – $160,900",
+        "minCash": "90,000",
+        "totalCash": "130,000",
+        "description": "Join the healthy vending revolution with Healthy YOU Vending! Since 1999 we have helped thousands of operators position themselves in their respective markets as vending professionals in this exciting $43+ Billion dollar industry. The demand for healthy food choices is exploding. We can help secure your locations. Don’t miss this opportunity!",
+        "location": "New York",
+        "category": "Health + Fitness",
+        "sub_category": "Education Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/kS4GPXJ/mobility-plus-250x150.png",
+        "title": "Mobility Plus",
+        "investment": "$40,950 – $110,900",
+        "minCash": "50,000",
+        "totalCash": "80,000",
+        "description": "Mobility Plus provides a variety of products to help Americans aged 65+ and those with disabilities to age in place. The number of Americans aged 65+ is set to double by 2030 and there are 17.1 million Americans who have difficulty walking and navigating stairs. Take advantage of this franchise opportunity in a growing and vital industry.",
+        "location": "New York",
+        "category": "Advertising",
+        "sub_category": "Entertainment Franchises"
+    },
+    {
+        "image": "https://i.ibb.co/Zf6Q8K0/healthyyou-vending-250x150.png",
+        "title": "Healthy YOU Vending",
+        "investment": "$69,950 – $160,900",
+        "minCash": "90,000",
+        "totalCash": "130,000",
+        "description": "Join the healthy vending revolution with Healthy YOU Vending! Since 1999 we have helped thousands of operators position themselves in their respective markets as vending professionals in this exciting $43+ Billion dollar industry. The demand for healthy food choices is exploding. We can help secure your locations. Don’t miss this opportunity!",
+        "location": "New York",
+        "category": "Health + Fitness",
+        "sub_category": "Entertainment Franchises"
     }
 ]

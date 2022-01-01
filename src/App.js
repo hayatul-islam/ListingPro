@@ -12,6 +12,7 @@ import AddListing from './Pages/AddListing/AddListing';
 import BrandDetail from './Pages/BrandDetail/BrandDetail';
 import AllListing from './Pages/AllListing/AllListing';
 import Contact from './Pages/Contact/Contact';
+import FindSearchListing from './Pages/Listings/FindSearchListing/FindSearchListing';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="addListing" element={<AddListing />} />
           <Route path="brandDetail/:brandTitle" element={<BrandDetail />} />
           <Route path="allListing" element={<AllListing />} />
+          <Route path="findSearchListing/:subCategory/:investment" element={<FindSearchListing />} />
         </Routes>
       </BrowserRouter>
     </div>

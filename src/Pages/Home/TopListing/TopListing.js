@@ -1,26 +1,14 @@
 
-import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import React from 'react';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import useListing from '../../../Hooks/useListing';
+import Listing from '../Listing/Listing';
 
 const TopListing = () => {
 
-    const [topListing, setTopListing] = useState([]);
+    const { listing } = useListing();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        fetch('https://boiling-taiga-51973.herokuapp.com/listing')
-            // fetch('listing.json')
-            .then(res => res.json())
-            .then(data => {
-                setTopListing(data.slice(0, 4))
-            })
-    }, []);
-
-    const handleListingDetails = id => {
-        navigate(`/listingDetails/${id}`)
-        console.log(id);
-    }
 
     const handleAllListing = () => {
         navigate('/allListing')
@@ -35,19 +23,10 @@ const TopListing = () => {
                 </div>
                 <Row>
                     {
-                        topListing.map(listing => <Col
+                        listing.slice(0, 4).map(listing => <Col
                             key={listing?._id}
                             xs={12} md={3}>
-                            <Card onClick={() => handleListingDetails(listing?._id)}>
-                                <Card.Img className='img-fluid' variant="top" src={listing?.image} />
-                                <Card.Body>
-                                    <Card.Title>{listing?.title}</Card.Title>
-                                    <Card.Text>
-                                        <p>{listing?.description.slice(0, 120)} more...</p>
-                                        <h6>Cash Required <span className='fs-5'>${listing?.minCash}</span></h6>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                            <Listing listing={listing} />
                         </Col>)
                     }
                     <div className="text-center mt-4">
