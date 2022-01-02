@@ -34,11 +34,7 @@ const Banner = () => {
         <div>
             <div className=" pt-3 top-banner">
                 <Container>
-                    <div className="pb-5">
-                        <Header />
-                    </div>
-
-                    <Row>
+                    <Row className='d-flex align-items-center'>
                         <Col xs={12} md={6}>
                             <div className='find-listing'>
                                 <div className='text-white pb-3'>

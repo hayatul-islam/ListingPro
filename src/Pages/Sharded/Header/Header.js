@@ -10,7 +10,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar expand="lg">
+            <Navbar expand="lg" className='header' variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">
                         <Image src="https://classic.listingprowp.com/wp-content/uploads/2017/01/listingpro-logo.png" />

@@ -13,11 +13,14 @@ import BrandDetail from './Pages/BrandDetail/BrandDetail';
 import AllListing from './Pages/AllListing/AllListing';
 import Contact from './Pages/Contact/Contact';
 import FindSearchListing from './Pages/Listings/FindSearchListing/FindSearchListing';
+import Footer from './Pages/Sharded/Footer/Footer';
+import Header from './Pages/Sharded/Header/Header';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="contact" element={<Contact />} />
@@ -27,6 +30,7 @@ function App() {
           <Route path="allListing" element={<AllListing />} />
           <Route path="findSearchListing/:subCategory/:investment" element={<FindSearchListing />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

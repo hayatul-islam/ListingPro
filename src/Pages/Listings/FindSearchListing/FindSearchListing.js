@@ -27,9 +27,9 @@ const FindSearchListing = () => {
     console.log(search);
 
     return (
-        <div className='py-5'>
+        <div className='pb-5'>
+            <SearchListing />
             <Container>
-                <SearchListing />
                 <Row>
                     {
                         search?.map(listing => <Col
