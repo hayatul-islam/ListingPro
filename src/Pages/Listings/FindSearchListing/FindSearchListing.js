@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import useListing from '../../../Hooks/useListing';
 import Listing from '../../Home/Listing/Listing';
 import SearchListing from '../SearchListing/SearchListing';
 
 const FindSearchListing = () => {
 
-    const { listing } = useListing();
     const { subCategory, investment } = useParams();
     const [search, setSearch] = useState([]);
 
-    const invest = parseInt(investment)
 
     // listing?.sub_category === subCategory
     useEffect(() => {
@@ -27,7 +24,7 @@ const FindSearchListing = () => {
     console.log(search);
 
     return (
-        <div className='pb-5'>
+        <div className='py-5'>
             <SearchListing />
             <Container>
                 <Row>

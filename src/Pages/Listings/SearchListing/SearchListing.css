@@ -1,0 +1,29 @@
+.searchContainer{
+    background-color: #404859;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.searchInput{
+    background-color: #404859;
+    color: white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding-bottom: 10px;
+    width: 100%;
+    padding: 10px 0;
+}
+.inputSearchBtn{
+    color: #fff;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 100%;
+    display: table;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    margin: 0;
+    border: none;
+    background: #32ac2f;
+}
