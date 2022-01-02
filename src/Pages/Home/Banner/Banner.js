@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../Sharded/Header/Header';
 import Brand from '../Brand/Brand';
 import './Banner.css';
 
@@ -80,8 +79,11 @@ const Banner = () => {
 
                 </Container>
             </div>
-            <div>
-                <div className="brands-container text-center mt-5">
+
+
+            <div className='brands-section text-center py-4'>
+                <h3 className='text-light pb-3'>Popular Brands For Sale</h3>
+                <div className="brands-container">
                     {
                         brands.map(brand => <Brand
                             key={brand?._id}

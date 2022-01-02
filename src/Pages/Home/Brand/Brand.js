@@ -10,6 +10,7 @@ const Brand = ({ brand }) => {
     }
 
     return (
+
         <div onClick={() => brandDetail(brand?.title)} className="brand-container py-4 m-2 rounded">
             <img src={brand?.image} />
             <h6 className="pt-3">{brand?.title}</h6>
