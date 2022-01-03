@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 const AddListing = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const [addListing, setAddListing] = useState([]);
-    const [brandCategory, setBrandCategory] = useState([]);
+    const [subCategory, setSubCategory] = useState([]);
 
     const onSubmit = data => {
         console.log(data);
@@ -19,44 +18,17 @@ const AddListing = () => {
             })
     };
 
-
     useEffect(() => {
-        fetch('https://boiling-taiga-51973.herokuapp.com/addAllListing')
+        fetch('https://aqueous-garden-52898.herokuapp.com/subCategory')
             .then(res => res.json())
-            .then(data => setAddListing(data))
+            .then(data => setSubCategory(data))
     }, []);
-
-    useEffect(() => {
-        fetch('https://boiling-taiga-51973.herokuapp.com/brands')
-            .then(res => res.json())
-            .then(data => setBrandCategory(data))
-    }, []);
-
-    const handleAddFeature = id => {
-        const findListing = addListing.find(listing => listing?._id === id);
-        axios.post(`https://boiling-taiga-51973.herokuapp.com/newAddListing/${id}`, findListing)
-            .then(result => {
-                console.log(result);
-            })
-    }
-
-    const handleDelete = id => {
-        const confirm = window.confirm('Are you sure?');
-        if (confirm) {
-            axios.delete(`https://boiling-taiga-51973.herokuapp.com/deleteAddListing/${id}`)
-                .then(result => {
-                    console.log(result);
-                })
-        }
-
-    };
 
     return (
         <div className='py-5'>
             <Container>
                 <Row>
-                    <Col xs={12} md={2}> </Col>
-                    <Col xs={12} md={8}>
+                    <Col xs={12} md={12}>
                         <div className='shadow px-4 py-5 rounded'>
                             <h2 className='pb-4 text-center'>Add New Listing</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,7 +45,7 @@ const AddListing = () => {
                                             <select className='w-100 mb-2 py-2' {...register("category")}>
                                                 <option value="selectCategory">Select Category</option>
                                                 {
-                                                    brandCategory.map(category => <option value={category?.title}>{category?.title}</option>)
+                                                    subCategory.map(category => <option value={category?.name}>{category?.name}</option>)
                                                 }
                                             </select>
                                         </div>
