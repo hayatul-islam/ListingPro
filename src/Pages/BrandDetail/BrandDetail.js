@@ -6,7 +6,7 @@ import SearchListing from '../Listings/SearchListing/SearchListing';
 
 const BrandDetail = () => {
 
-    const { brandTitle } = useParams();
+    const { brandTitle, investment } = useParams();
     const [brandDetails, setBrandDetails] = useState([]);
 
 
@@ -17,7 +17,7 @@ const BrandDetail = () => {
             // fetch('listing.json')
             .then(res => res.json())
             .then(data => {
-                const filterData = data?.filter(cat => cat?.category === brandTitle);
+                const filterData = data?.filter(cat => cat?.category === brandTitle && (cat?.totalCash <= investment));
                 setBrandDetails(filterData);
             })
     }, []);

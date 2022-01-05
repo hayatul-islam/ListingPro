@@ -16,7 +16,7 @@ const FindSearchListing = () => {
             .then(res => res.json())
             .then(data => {
 
-                const searchData = data.filter(search => search?.sub_category == subCategory)
+                const searchData = data.filter(search => search?.sub_category === subCategory)
                 setSearch(searchData)
             })
     }, [search]);
