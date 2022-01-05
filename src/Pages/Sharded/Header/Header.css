@@ -18,7 +18,7 @@ nav a{
     width: 500px !important;
 } */
 .dropdown-item:hover{
-    color: red;
+    font-weight: bold;
     background: none;
 }
 

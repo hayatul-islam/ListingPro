@@ -36,7 +36,7 @@ const Header = () => {
                                 menuVariant="light" title="By Industry">
                                 <Row>
                                     <Col xs={12} md={6}>
-                                        <Dropdown.Item onClick={handleAllIndustry} href="#">All Industry</Dropdown.Item>
+                                        <Dropdown.Item className='text-secondary fw-bold' onClick={handleAllIndustry} href="#">Views All Industries</Dropdown.Item>
                                     </Col>
                                     {
                                         subCategory?.map(list => <Col xs={12} md={6}>
