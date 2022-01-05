@@ -32,7 +32,7 @@ const SearchListing = () => {
                                         <select className='searchInput' {...register("sub_category")}>
                                             <option value="all">All Industries</option>
                                             {
-                                                subCategory?.map(subCategory => <option value={subCategory}>{subCategory}</option>)
+                                                subCategory?.map(subCategory => <option value={subCategory?.name}>{subCategory?.name}</option>)
                                             }
                                         </select>
                                     </Col>

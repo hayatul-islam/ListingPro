@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useListing = () => {
 
@@ -13,15 +13,21 @@ const useListing = () => {
 
                 setListing(data);
 
-                // filter category 
-                const subCategory = data.map(category => category.sub_category);
-                let filterCategory = subCategory.filter((unique, index) => {
-                    return subCategory.indexOf(unique) === index;
-                });
-                setSubCategory(filterCategory);
+                // // filter category 
+                // const subCategory = data.map(category => category.sub_category);
+                // let filterCategory = subCategory.filter((unique, index) => {
+                //     return subCategory.indexOf(unique) === index;
+                // });
+                // setSubCategory(filterCategory);
 
             })
     }, []);
+
+    useEffect(() => {
+        fetch('https://aqueous-garden-52898.herokuapp.com/subCategory')
+            .then(res => res.json())
+            .then(data => setSubCategory(data))
+    })
 
     return {
         listing,

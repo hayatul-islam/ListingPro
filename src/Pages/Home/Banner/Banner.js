@@ -9,7 +9,7 @@ const Banner = () => {
     const [brands, setBrands] = useState([]);
     const [searchData, setSearchData] = useState({});
 
-    console.log(searchData.category);
+
     useEffect(() => {
         fetch('https://boiling-taiga-51973.herokuapp.com/brands')
             // fetch('brand.json')

@@ -6,7 +6,7 @@ import './Header.css';
 const Header = () => {
     const navigate = useNavigate()
     const handleAddListing = () => {
-        navigate('/addListing')
+        navigate('/dashboard')
     }
     return (
         <div>
@@ -19,7 +19,7 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             <NavLink className="text-white" to="">Home</NavLink>
-                            <NavLink className="text-white" to="">Category</NavLink>
+                            <NavLink className="text-white" to="/industry">By Industry</NavLink>
                             <NavLink className="text-white" to="">Blog</NavLink>
                             <NavLink className="text-white" to="">Explore</NavLink>
                             <NavLink className="text-white" to='/contact'>Contact Us</NavLink>

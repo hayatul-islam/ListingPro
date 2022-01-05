@@ -16,6 +16,7 @@ import FindSearchListing from './Pages/Listings/FindSearchListing/FindSearchList
 import Footer from './Pages/Sharded/Footer/Footer';
 import Header from './Pages/Sharded/Header/Header';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Industry from './Pages/Industry/Industry';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="industry" element={<Industry />} />
           <Route path="contact" element={<Contact />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="addListing" element={<AddListing />} />
