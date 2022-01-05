@@ -17,6 +17,7 @@ import Footer from './Pages/Sharded/Footer/Footer';
 import Header from './Pages/Sharded/Header/Header';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Industry from './Pages/Industry/Industry';
+import IndustryDetails from './Pages/Industry/IndustryDetails/IndustryDetails';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="industry" element={<Industry />} />
+          <Route path="industryDetails/:industryName" element={<IndustryDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="addListing" element={<AddListing />} />
