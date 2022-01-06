@@ -11,7 +11,7 @@ const Banner = () => {
 
 
     useEffect(() => {
-        fetch('https://boiling-taiga-51973.herokuapp.com/brands')
+        fetch('https://aqueous-garden-52898.herokuapp.com/category')
             // fetch('brand.json')
             .then(res => res.json())
             .then(data => setBrands(data))
@@ -44,8 +44,8 @@ const Banner = () => {
                                         <select className='w-100 p-2 mb-2' {...register("category")} name="category" id="">
                                             <option value="default">Select Category</option>
                                             {
-                                                brands.map(brand => <option value={brand?.title} >
-                                                    {brand?.title}
+                                                brands.map(brand => <option value={brand?.name} >
+                                                    {brand?.name}
                                                 </option>)
                                             }
                                         </select>
