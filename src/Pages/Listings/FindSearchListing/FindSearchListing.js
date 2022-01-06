@@ -9,7 +9,6 @@ const FindSearchListing = () => {
     const { category, investment } = useParams();
     const [listing, setListing] = useState([]);
 
-
     const justCategory = listing?.filter(list => list?.category === category);
     const categoryAndInvestment = listing?.filter(list => list?.category === category && parseFloat(list?.totalCash) <= parseFloat(investment));
 
