@@ -7,21 +7,25 @@ import SearchListing from '../SearchListing/SearchListing';
 const FindSearchListing = () => {
 
     const { category, investment } = useParams();
-    const [search, setSearch] = useState([]);
+    const [listing, setListing] = useState([]);
 
 
-    // listing?.sub_category === subCategory
+    const justCategory = listing?.filter(list => list?.category === category);
+    const categoryAndInvestment = listing?.filter(list => list?.category === category && parseFloat(list?.totalCash) <= parseFloat(investment));
+
+    const onlyInvestment = listing?.filter(list => parseFloat(list?.totalCash) <= parseFloat(investment))
+
+
+
     useEffect(() => {
         fetch('https://boiling-taiga-51973.herokuapp.com/listing')
             .then(res => res.json())
             .then(data => {
-
-                const searchData = data.filter(search => search?.category === category)
-                setSearch(searchData)
-            })
-    }, [search]);
-
-    console.log(search);
+                setListing(data)
+            }).catch(error => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <div className='py-5'>
@@ -29,12 +33,38 @@ const FindSearchListing = () => {
             <Container>
                 <Row>
                     {
-                        search?.map(listing => <Col
-                            key={listing?._id}
-                            xs={12} md={3}>
-                            <Listing listing={listing} />
-                        </Col>)
+                        category && investment === 'all' ?
+                            justCategory?.map(listing => <Col
+                                key={listing?._id}
+                                xs={12} md={3}>
+                                <Listing listing={listing} />
+                            </Col>) : ''
                     }
+                    {
+                        category && investment !== 'all' ?
+                            categoryAndInvestment?.map(listing => <Col
+                                key={listing?._id}
+                                xs={12} md={3}>
+                                <Listing listing={listing} />
+                            </Col>) : ''
+                    }
+                    {
+                        category === 'all' && investment ?
+                            onlyInvestment?.map(listing => <Col
+                                key={listing?._id}
+                                xs={12} md={3}>
+                                <Listing listing={listing} />
+                            </Col>) : ''
+                    }
+                    {
+                        category === 'all' && investment === 'all' ?
+                            listing?.map(listing => <Col
+                                key={listing?._id}
+                                xs={12} md={3}>
+                                <Listing listing={listing} />
+                            </Col>) : ''
+                    }
+
                 </Row>
             </Container>
         </div>

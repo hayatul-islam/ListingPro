@@ -18,7 +18,7 @@ const Listing = ({ listing }) => {
                 <Card.Title>{listing?.title}</Card.Title>
                 <Card.Text>
                     <p>{listing?.description.slice(0, 120)} more...</p>
-                    <h6>Cash Required <span className='fs-5'>${listing?.minCash}</span></h6>
+                    <h6>Cash Required <span className='fs-5'>${listing?.totalCash}</span></h6>
                 </Card.Text>
             </Card.Body>
         </Card>
