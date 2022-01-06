@@ -6,7 +6,7 @@ import './Header.css';
 
 const Header = () => {
 
-    const { subCategory } = useListing();
+    const { category } = useListing();
     const navigate = useNavigate();
 
     const handleAddListing = () => {
@@ -42,7 +42,7 @@ const Header = () => {
                                         <Dropdown.Item className='text-secondary fw-bold' onClick={handleAllIndustry} href="#">Views All Industries</Dropdown.Item>
                                     </Col>
                                     {
-                                        subCategory?.map(list => <Col xs={12} md={6}>
+                                        category?.map(list => <Col xs={12} md={6}>
                                             <div className='dropdownItem'>
                                                 <Dropdown.Item onClick={() => handleIndustry(list?.name)} href="#">{list?.name}</Dropdown.Item>
                                             </div>

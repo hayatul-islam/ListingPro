@@ -10,7 +10,7 @@ const IndustryDetails = () => {
     const { industryName } = useParams();
     const { listing } = useListing();
 
-    const filterListng = listing?.filter(list => list?.sub_category === industryName);
+    const filterListing = listing?.filter(list => list?.category === industryName);
 
 
 
@@ -20,7 +20,7 @@ const IndustryDetails = () => {
                 <SearchListing />
                 <Row>
                     {
-                        filterListng?.map(listing => <Col
+                        filterListing?.map(listing => <Col
                             key={listing?._id}
                             xs={12} md={3}>
                             <Listing listing={listing} />

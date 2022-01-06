@@ -33,7 +33,7 @@ function App() {
           <Route path="addListing" element={<AddListing />} />
           <Route path="brandDetail/:brandTitle" element={<BrandDetail />} />
           <Route path="allListing" element={<AllListing />} />
-          <Route path="findSearchListing/:subCategory/:investment" element={<FindSearchListing />} />
+          <Route path="findSearchListing/:category/:investment" element={<FindSearchListing />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />

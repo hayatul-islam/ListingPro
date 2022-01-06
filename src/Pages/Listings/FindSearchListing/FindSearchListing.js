@@ -6,7 +6,7 @@ import SearchListing from '../SearchListing/SearchListing';
 
 const FindSearchListing = () => {
 
-    const { subCategory, investment } = useParams();
+    const { category, investment } = useParams();
     const [search, setSearch] = useState([]);
 
 
@@ -16,7 +16,7 @@ const FindSearchListing = () => {
             .then(res => res.json())
             .then(data => {
 
-                const searchData = data.filter(search => search?.sub_category === subCategory)
+                const searchData = data.filter(search => search?.category === category)
                 setSearch(searchData)
             })
     }, [search]);

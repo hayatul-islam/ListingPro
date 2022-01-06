@@ -6,7 +6,7 @@ import SearchListing from '../Listings/SearchListing/SearchListing';
 
 const Industry = () => {
 
-    const { subCategory } = useListing();
+    const { category } = useListing();
     const navigate = useNavigate();
 
     const handleIndustry = industry => {
@@ -22,7 +22,7 @@ const Industry = () => {
                 <Row>
                     <h2>INDUSTRY</h2>
                     {
-                        subCategory?.map(industry => <Col xs={12} md={6} lg={4}>
+                        category?.map(industry => <Col xs={12} md={6} lg={4}>
                             <div className='py-2'>
                                 <li onClick={() => handleIndustry(industry?.name)}>{industry?.name}</li>
                             </div>

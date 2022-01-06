@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import useListing from '../../Hooks/useListing';
 
 const AddListing = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const [subCategory, setSubCategory] = useState([]);
+    const { category } = useListing();
 
     const onSubmit = data => {
         console.log(data);
@@ -17,12 +18,6 @@ const AddListing = () => {
                 }
             })
     };
-
-    useEffect(() => {
-        fetch('https://aqueous-garden-52898.herokuapp.com/subCategory')
-            .then(res => res.json())
-            .then(data => setSubCategory(data))
-    }, []);
 
     return (
         <div className='py-5'>
@@ -45,7 +40,7 @@ const AddListing = () => {
                                             <select className='w-100 mb-2 py-2' {...register("category")}>
                                                 <option value="selectCategory">Select Category</option>
                                                 {
-                                                    subCategory.map(category => <option value={category?.name}>{category?.name}</option>)
+                                                    category.map(category => <option value={category?.name}>{category?.name}</option>)
                                                 }
                                             </select>
                                         </div>

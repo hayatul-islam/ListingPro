@@ -7,7 +7,7 @@ import './SearchListing.css';
 
 const SearchListing = () => {
 
-    const { subCategory } = useListing();
+    const { category } = useListing();
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
@@ -32,7 +32,7 @@ const SearchListing = () => {
                                         <select className='searchInput' {...register("sub_category")}>
                                             <option value="all">All Industries</option>
                                             {
-                                                subCategory?.map(subCategory => <option value={subCategory?.name}>{subCategory?.name}</option>)
+                                                category?.map(category => <option value={category?.name}>{category?.name}</option>)
                                             }
                                         </select>
                                     </Col>

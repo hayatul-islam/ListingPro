@@ -6,7 +6,7 @@ import Brand from '../Brand/Brand';
 import './Banner.css';
 
 const Banner = () => {
-    const [brands, setBrands] = useState([]);
+    const [category, setCategory] = useState([]);
     const [searchData, setSearchData] = useState({});
 
 
@@ -14,7 +14,7 @@ const Banner = () => {
         fetch('https://aqueous-garden-52898.herokuapp.com/category')
             // fetch('brand.json')
             .then(res => res.json())
-            .then(data => setBrands(data))
+            .then(data => setCategory(data))
     }, []);
 
     const navigate = useNavigate();
@@ -44,8 +44,8 @@ const Banner = () => {
                                         <select className='w-100 p-2 mb-2' {...register("category")} name="category" id="">
                                             <option value="default">Select Category</option>
                                             {
-                                                brands.map(brand => <option value={brand?.name} >
-                                                    {brand?.name}
+                                                category.map(category => <option value={category?.name} >
+                                                    {category?.name}
                                                 </option>)
                                             }
                                         </select>
@@ -82,12 +82,12 @@ const Banner = () => {
 
 
             <div className='brands-section text-center py-4'>
-                <h3 className='text-light pb-3'>Popular Brands For Sale</h3>
+                <h3 className='text-light pb-3'>Popular Category</h3>
                 <div className="brands-container">
                     {
-                        brands.map(brand => <Brand
-                            key={brand?._id}
-                            brand={brand}
+                        category.map(category => <Brand
+                            key={category?._id}
+                            category={category}
                         ></Brand>)
                     }
 
