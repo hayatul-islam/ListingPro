@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Image } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import Brand from '../Brand/Brand';
+import Category from '../Category/Category';
 import './Banner.css';
 
 const Banner = () => {
@@ -85,10 +85,10 @@ const Banner = () => {
                 <h3 className='text-light pb-3'>Popular Category</h3>
                 <div className="brands-container">
                     {
-                        category.map(category => <Brand
+                        category.map(category => <Category
                             key={category?._id}
                             category={category}
-                        ></Brand>)
+                        ></Category>)
                     }
 
                 </div>

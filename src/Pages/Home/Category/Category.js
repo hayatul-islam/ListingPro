@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Brand.css';
+import './Category.css';
 
-const Brand = ({ category }) => {
+const Category = ({ category }) => {
 
     const navigate = useNavigate();
     const brandDetail = (title) => {
-        navigate(`brandDetail/${title}`);
+        navigate(`categoryDetail/${title}`);
     }
 
     return (
@@ -18,4 +18,4 @@ const Brand = ({ category }) => {
     );
 };
 
-export default Brand;
+export default Category;

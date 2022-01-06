@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Listing from '../Home/Listing/Listing';
 import SearchListing from '../Listings/SearchListing/SearchListing';
 
-const BrandDetail = () => {
+const CategoryDetail = () => {
 
     const { brandTitle } = useParams();
     const [brandDetails, setBrandDetails] = useState([]);
@@ -42,4 +42,4 @@ const BrandDetail = () => {
     );
 };
 
-export default BrandDetail;
+export default CategoryDetail;
