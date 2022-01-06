@@ -20,10 +20,11 @@ const Banner = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data);
-        const search = data?.category;
-        navigate(`/brandDetail/${search}`)
-    };
+        let sub = data?.category;
+        let investment = data?.investment;
+        console.log(sub, investment);
+        navigate(`/findSearchListing/${sub}/${investment}`)
+    }
 
     const handleSearch = (searchData) => {
         // navigate(`/listingDetails/${searchData}`)

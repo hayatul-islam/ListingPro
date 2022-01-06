@@ -12,7 +12,7 @@ const SearchListing = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        let sub = data?.sub_category;
+        let sub = data?.category;
         let investment = data?.investment;
         console.log(sub, investment);
         navigate(`/findSearchListing/${sub}/${investment}`)
@@ -29,7 +29,7 @@ const SearchListing = () => {
                             <Col xs={12} md={10}>
                                 <Row>
                                     <Col xs={12} md={4}>
-                                        <select className='searchInput' {...register("sub_category")}>
+                                        <select className='searchInput' {...register("category")}>
                                             <option value="all">All Industries</option>
                                             {
                                                 category?.map(category => <option value={category?.name}>{category?.name}</option>)
