@@ -16,7 +16,6 @@ const SearchDetails = () => {
 
                 if (category !== 'all' && investment !== 'all' && searchValue) {
                     const filterAll = data?.filter(list => list?.category === category && parseFloat(list?.totalCash) <= parseFloat(investment) && list?.title.toLowerCase().indexOf(searchValue) !== -1);
-                    // console.log(filterAll);
                     setSearch(filterAll)
                 } else if (category !== 'all' && investment === 'all' && searchValue) {
                     const categoryAndSearch = data?.filter(list => list?.category === category && list?.title.toLowerCase().indexOf(searchValue) !== -1);
@@ -26,7 +25,6 @@ const SearchDetails = () => {
                     setSearch(investmentAndSearch)
                 } else if (category === 'all' && investment === 'all' && searchValue) {
                     const onlySearch = data.filter(list => list?.title.toLowerCase().indexOf(searchValue) !== -1)
-                    console.log(onlySearch);
                     setSearch(onlySearch)
                 }
 

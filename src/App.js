@@ -21,6 +21,7 @@ import CategoryDetail from './Pages/CategoryDetail/CategoryDetail';
 import ByInvestment from './Pages/ByInvestment/ByInvestment';
 import ByInvestmentDetails from './Pages/ByInvestmentDetails/ByInvestmentDetails';
 import SearchDetails from './Pages/SearchDetails/SearchDetails';
+import Login from './Pages/Sharded/Login/Login';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="addListing" element={<AddListing />} />
           <Route path="allListing" element={<AllListing />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="login" element={<Login />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="categoryDetail/:brandTitle" element={<CategoryDetail />} />
           <Route path="industryDetails/:industryName" element={<IndustryDetails />} />
