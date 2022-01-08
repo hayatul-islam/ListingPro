@@ -22,6 +22,7 @@ import ByInvestment from './Pages/ByInvestment/ByInvestment';
 import ByInvestmentDetails from './Pages/ByInvestmentDetails/ByInvestmentDetails';
 import SearchDetails from './Pages/SearchDetails/SearchDetails';
 import Login from './Pages/Sharded/Login/Login';
+import PrivateRoute from './Pages/Sharded/Login/PrivateRoute';
 
 function App() {
   return (
@@ -33,7 +34,11 @@ function App() {
           <Route path="industry" element={<Industry />} />
           <Route path="byInvestment" element={<ByInvestment />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="addListing" element={<AddListing />} />
+          <Route path="addListing" element={
+            <PrivateRoute>
+              <AddListing />
+            </PrivateRoute>
+          } />
           <Route path="allListing" element={<AllListing />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
