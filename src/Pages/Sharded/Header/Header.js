@@ -23,6 +23,14 @@ const Header = () => {
         navigate('/')
     }
 
+    // by investment 
+    const handleAllInvestment = () => {
+        navigate('/byInvestment')
+    }
+    const handleLevel = level => {
+        navigate(`investmentDetails/${level}`)
+    }
+
     return (
         <div>
             <Navbar expand="lg" className='header' variant="dark">
@@ -51,7 +59,45 @@ const Header = () => {
                                 </Row>
 
                             </NavDropdown>
-                            <NavLink className="text-white" to="">Blog</NavLink>
+                            <NavDropdown className='navDropdownBtn text-light' id="nav-dropdown-dark-example"
+                                menuVariant="light" title="By Investment">
+                                <Row>
+                                    <Col xs={12} md={6}>
+                                        <Dropdown.Item className='text-secondary fw-bold' onClick={handleAllInvestment} href="#">Views All Level</Dropdown.Item>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='dropdownItem'>
+                                            <Dropdown.Item onClick={() => handleLevel(10000)} href="#">Under $10000</Dropdown.Item>
+                                        </div>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='dropdownItem'>
+                                            <Dropdown.Item onClick={() => handleLevel(20000)} href="#">Under $20000</Dropdown.Item>
+                                        </div>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='dropdownItem'>
+                                            <Dropdown.Item onClick={() => handleLevel(30000)} href="#">Under $30000</Dropdown.Item>
+                                        </div>
+                                    </Col>
+
+                                    <Col xs={12} md={6}>
+                                        <div className='dropdownItem'>
+                                            <Dropdown.Item onClick={() => handleLevel(50000)} href="#">Under $50000</Dropdown.Item>
+                                        </div>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='dropdownItem'>
+                                            <Dropdown.Item onClick={() => handleLevel(80000)} href="#">Under $80000</Dropdown.Item>
+                                        </div>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='dropdownItem'>
+                                            <Dropdown.Item onClick={() => handleLevel(100000)} href="#">Under $100000</Dropdown.Item>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </NavDropdown>
                             <NavLink className="text-white" to="">Explore</NavLink>
                             <NavLink className="text-white" to='/contact'>Contact Us</NavLink>
                         </Nav>

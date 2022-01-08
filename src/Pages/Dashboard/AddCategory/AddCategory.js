@@ -17,6 +17,30 @@ const AddCategory = () => {
             })
     };
 
+    // const onSubmit = async (data) => {
+    //     if (!editService && !data.image[0]) {
+    //       return toast.error("Please upload an image!");
+    //     }
+    //     const loading = toast.loading("Uploading...Please wait!");
+    //     let imageURL = editService ? editService.image : "";
+
+    //     if (!editService || (editService && data.image[0])) {
+    //       const imageData = new FormData();
+    //       imageData.set("key", "08d5da1c81cc5c52012f0b930505d031");
+    //       imageData.append("image", data.image[0]);
+    //       try {
+    //         const res = await axios.post(
+    //           "https://api.imgbb.com/1/upload",
+    //           imageData
+    //         );
+    //         imageURL = res.data.data.display_url;
+    //       } catch (error) {
+    //         toast.dismiss(loading);
+    //         return toast.error("Failed to upload the image!");
+    //       }
+    //     }
+
+
     return (
         <div>
             <Row>
@@ -43,6 +67,8 @@ const AddCategory = () => {
                     </div>
                 </Col>
             </Row>
+
+
 
         </div>
     );

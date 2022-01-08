@@ -18,6 +18,8 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Industry from './Pages/Industry/Industry';
 import IndustryDetails from './Pages/Industry/IndustryDetails/IndustryDetails';
 import CategoryDetail from './Pages/CategoryDetail/CategoryDetail';
+import ByInvestment from './Pages/ByInvestment/ByInvestment';
+import ByInvestmentDetails from './Pages/ByInvestmentDetails/ByInvestmentDetails';
 
 function App() {
   return (
@@ -27,14 +29,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="industry" element={<Industry />} />
-          <Route path="industryDetails/:industryName" element={<IndustryDetails />} />
+          <Route path="byInvestment" element={<ByInvestment />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="addListing" element={<AddListing />} />
-          <Route path="categoryDetail/:brandTitle" element={<CategoryDetail />} />
           <Route path="allListing" element={<AllListing />} />
-          <Route path="findSearchListing/:category/:investment" element={<FindSearchListing />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="listingDetails/:listingId" element={<ListingDetails />} />
+          <Route path="categoryDetail/:brandTitle" element={<CategoryDetail />} />
+          <Route path="industryDetails/:industryName" element={<IndustryDetails />} />
+          <Route path="investmentDetails/:level" element={<ByInvestmentDetails />} />
+          <Route path="findSearchListing/:category/:investment" element={<FindSearchListing />} />
         </Routes>
         <Footer />
       </BrowserRouter>
