@@ -20,6 +20,7 @@ import IndustryDetails from './Pages/Industry/IndustryDetails/IndustryDetails';
 import CategoryDetail from './Pages/CategoryDetail/CategoryDetail';
 import ByInvestment from './Pages/ByInvestment/ByInvestment';
 import ByInvestmentDetails from './Pages/ByInvestmentDetails/ByInvestmentDetails';
+import SearchDetails from './Pages/SearchDetails/SearchDetails';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="industryDetails/:industryName" element={<IndustryDetails />} />
           <Route path="investmentDetails/:level" element={<ByInvestmentDetails />} />
           <Route path="findSearchListing/:category/:investment" element={<FindSearchListing />} />
+          <Route path="searchDetails/:category/:investment/:searchValue" element={<SearchDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>

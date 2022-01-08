@@ -20,15 +20,19 @@ const Banner = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
+        console.log(data);
         let sub = data?.category;
         let investment = data?.investment;
-        console.log(sub, investment);
-        navigate(`/findSearchListing/${sub}/${investment}`)
+        let searchValue = data?.inputSearch;
+        console.log(typeof searchValue);
+        if (searchValue === '') {
+            navigate(`/findSearchListing/${sub}/${investment}`)
+        } else {
+            navigate(`/searchDetails/${sub}/${investment}/${searchValue}`);
+        }
     }
 
-    const handleSearch = (searchData) => {
-        // navigate(`/listingDetails/${searchData}`)
-    }
+
 
     return (
         <div>
@@ -70,8 +74,8 @@ const Banner = () => {
                                             <option value="500000">Over $500,000</option>
                                         </select>
                                         <div className='search-container'>
-                                            <input className='p-2 w-100 inputSearch' {...register("inputSearch")} type="search" name="inputSearch" id="" placeholder='Search for...' />
-                                            <button onClick={() => handleSearch(searchData?.category)} type='submit' className="submitBtn"><i class="fas fa-search"></i></button>
+                                            <input className='p-2 w-100 inputSearch' {...register("inputSearch")} type="search" name="inputSearch" id="" placeholder='Search for...' defaultValue={null} />
+                                            <button type='submit' className="submitBtn"><i class="fas fa-search"></i></button>
                                         </div>
                                     </form>
                                 </div>
