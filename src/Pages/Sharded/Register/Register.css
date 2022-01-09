@@ -1,0 +1,23 @@
+.registerForm{
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+}
+.registerForm .userLogin i{
+    font-size: 70px;
+    border: 1px solid #aaaaaa;
+    padding: 20px;
+    border-radius: 30px;
+    margin-top: -60px;
+    color: #aaaaaa;
+}
+.loginBtn{
+    background-color: #0a0659;
+    color: white;
+}
+.loginBtn:hover{
+    background-color: #0a0659;
+    color: white;
+}

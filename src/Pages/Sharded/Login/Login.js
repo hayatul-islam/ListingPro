@@ -38,27 +38,24 @@ const Login = () => {
                         :
                         <button onClick={handleGoogle} className="btn btn-primary">Google</button>
                 }
-                <div>
-                    <Link to="/register">New User </Link>
-                </div>
 
-                <Row className="pt-3">
-                    <Col md={2} lg={3}></Col>
-                    <Col xs={12} md={8} lg={5}>
-                        <div className="shadow px-4 py-4 mt-5">
-                            <div className="text-center pb-5 pt-3">
-                                <img style={{ height: '40px' }} className="img-fluid" src="https://cdn.shopify.com/s/files/1/0366/2325/3549/files/logo.png?v=1585015777" />
-                            </div>
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <input className="form-control" type="email" {...register("email")} placeholder="Email address" /> <br />
-                                <input className="form-control" type="password" {...register("password")} placeholder="Password" /> <br />
-                                <input className="btn btn-success btn-lg px-5 rounded-pill form-control" type="submit" value="Login" />
-                            </form>
-                            <p className="text-center pt-3 text-danger">{error}</p>
-                            <p className="mt-5 text-center">New User? Please, <Link to="/register">Register</Link></p>
-                        </div>
-                    </Col>
-                </Row>
+                <div className="registerForm shadow">
+                    <div className="text-center pb-5 userLogin">
+                        {/* <i className="fas fa-user "></i> */}
+                        <i className="fas fa-user-astronaut"></i>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input className="form-control" type="email" {...register("email")} placeholder="Email address" /> <br />
+                        <input className="form-control" type="password" {...register("password")} placeholder="Password" /> <br />
+                        <input className="btn loginBtn btn-lg px-5 rounded-pill form-control" type="submit" value="Login" />
+                    </form>
+                    <div className='pt-4 d-flex align-items-center justify-content-center'>
+                        <span className='fs-5'>Or <i className="fas fa-angle-double-right me-2"></i></span>
+                        <button onClick={handleGoogle} className="btn btn-outline-dark fs-5 googleBtn"><i className="fab fa-google"></i></button>
+                    </div>
+                    <p className="text-center pt-3 text-danger">{error}</p>
+                    <p className="mt-3 text-center">New User? Please, <Link to="/register">Register</Link></p>
+                </div>
 
 
 
