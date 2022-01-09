@@ -1,15 +1,20 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from '../../../Hooks/useFirebase';
 
 const Login = () => {
+
     const { googleSignIn, logOut, user } = useFirebase();
 
+    const location = useLocation()
+    const redirect_url = location.state?.from || '/';
+    const navigate = useNavigate();
 
     const handleGoogle = () => {
         googleSignIn()
-            .then(result => {
-                console.log(result.user);
+            .then(() => {
+                navigate(redirect_url)
             })
     }
 
