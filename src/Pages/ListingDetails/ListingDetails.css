@@ -1,0 +1,63 @@
+
+.listingDetails {
+    background-color: #f1f1f1;
+}
+.listingDetails h2{
+    font-size: 24px;
+    color: #333333;
+    text-transform: uppercase;
+}
+.businessInfoContainer{
+    border: 1px solid #dbdbdb;
+    text-align: center;
+    padding: 8px 0;
+}
+.middleInfo {
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+.businessInfo p{
+    font-size: 16px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.businessDetails{
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 18px 20px 0;
+    margin-top: 20px;
+    background: #fff;
+}
+.businessDetails h2{
+    color: #666666;
+    font-size: 24px;
+    margin-bottom: -9px;
+}
+.businessDetails h5{
+    font-size: 18px;
+}
+
+.commonOperation p{
+    margin-bottom: 0;
+}
+.businessUnitsContainer{
+    border: 1px solid #dbdbdb;
+}
+.businessUnits{
+    padding: 10px;
+}
+.units{
+    background-color: #f1f1f1;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+.applyFrom {
+    border: 1px solid #dbdbdb;
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: 20px;
+    background: #fff;
+}
