@@ -17,6 +17,17 @@ nav a{
 /* .dropdownItem{
     width: 500px !important;
 } */
+
+.adminBtn .dropdown-toggle::after {
+    content: none;
+}
+.adminBtn .userBttn{
+    background: #04203d;
+    border: none;
+}
+.adminBtn .userBttn i{
+    font-size: 18px;
+}
 .dropdown-item:hover{
     font-weight: bold;
     background: none;

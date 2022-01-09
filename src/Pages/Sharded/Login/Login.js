@@ -25,19 +25,11 @@ const Login = () => {
             })
     }
 
-    const handleLogOut = () => {
-        logOut()
-    }
+
 
     return (
-        <div className="py-5">
+        <div className="py-5 mt-5">
             <Container>
-
-                {
-                    user?.email ? <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
-                        :
-                        <button onClick={handleGoogle} className="btn btn-primary">Google</button>
-                }
 
                 <div className="registerForm shadow">
                     <div className="text-center pb-5 userLogin">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Image, Nav, Navbar, Button, Dropdown, Col, Row, NavDropdown } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
+import useFirebase from '../../../Hooks/useFirebase';
 import useListing from '../../../Hooks/useListing';
 import './Header.css';
 
@@ -8,11 +9,18 @@ const Header = () => {
 
     const { category } = useListing();
     const navigate = useNavigate();
+    const { user, logOut } = useFirebase();
 
     const handleDashboard = () => {
         navigate('/dashboard')
     }
 
+    const handleLogin = () => {
+        navigate('/login')
+    }
+    const handleLogOut = () => {
+        logOut()
+    }
     const handleAllIndustry = () => {
         navigate('/industry')
     }
@@ -101,7 +109,21 @@ const Header = () => {
                             <NavLink className="text-white" to="">Explore</NavLink>
                             <NavLink className="text-white" to='/contact'>Contact Us</NavLink>
                         </Nav>
-                        <Button onClick={handleDashboard} variant="outline-light">Dashboard</Button>
+
+                        <Dropdown className='adminBtn'>
+                            <Dropdown.Toggle className='userBttn' id="dropdown-basic">
+                                <i class="fas fa-user-circle"></i>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={handleDashboard} href="">Dashboard</Dropdown.Item>
+                                {
+                                    user?.email ? <button onClick={handleLogOut} className="btn btn-outline-dark ms-2 mt-1 rounded-3">Log Out</button>
+                                        :
+                                        <Dropdown.Item onClick={handleLogin} href="">login/Register</Dropdown.Item>
+                                }
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
