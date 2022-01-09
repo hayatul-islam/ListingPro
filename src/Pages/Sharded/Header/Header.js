@@ -9,7 +9,7 @@ const Header = () => {
     const { category } = useListing();
     const navigate = useNavigate();
 
-    const handleAddListing = () => {
+    const handleDashboard = () => {
         navigate('/dashboard')
     }
 
@@ -101,7 +101,7 @@ const Header = () => {
                             <NavLink className="text-white" to="">Explore</NavLink>
                             <NavLink className="text-white" to='/contact'>Contact Us</NavLink>
                         </Nav>
-                        <Button onClick={handleAddListing} variant="outline-light">Add Listing</Button>
+                        <Button onClick={handleDashboard} variant="outline-light">Dashboard</Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

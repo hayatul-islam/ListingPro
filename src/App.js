@@ -24,6 +24,7 @@ import SearchDetails from './Pages/SearchDetails/SearchDetails';
 import Login from './Pages/Sharded/Login/Login';
 import PrivateRoute from './Pages/Sharded/Login/PrivateRoute';
 import useFirebase from './Hooks/useFirebase';
+import Register from './Pages/Sharded/Register/Register';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />
           <Route path="categoryDetail/:brandTitle" element={<CategoryDetail />} />
           <Route path="industryDetails/:industryName" element={<IndustryDetails />} />

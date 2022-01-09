@@ -138,7 +138,7 @@ const ListingDetails = () => {
                                     <label className='ms-2' for="vehicle3"> I agree to the Terms & Conditions</label>
                                 </div>
                                 <div className="pt-3">
-                                    <input className='btn btn-primary px-5 py-2' type="submit" value="Sent" />
+                                    <input className='btn btn-primary px-5 py-2' type="submit" value="Apply Now" />
                                 </div>
                             </form>
                         </div>

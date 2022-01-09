@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import firebaseInitializeApp from '../firebase/firebaseInitializeApp';
 
 firebaseInitializeApp()
@@ -19,6 +19,51 @@ const useFirebase = () => {
                 setIsLoading(false)
             })
     }
+
+    const handleUserRegister = (email, password, name, location, navigate) => {
+
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+
+                }).catch((error) => {
+                    setError(error.message);
+                });
+                // history.replace('/');
+
+
+                const redirect_url = location?.state?.from || '/';
+                navigate(redirect_url)
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    };
+
+    const handleUserLogin = (email, password, location, navigate) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                const redirect_url = location?.state?.from || '/';
+                navigate(redirect_url)
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    };
 
 
     useEffect(() => {
@@ -43,6 +88,8 @@ const useFirebase = () => {
         isLoading,
         error,
         googleSignIn,
+        handleUserRegister,
+        handleUserLogin,
         logOut
     }
 }
