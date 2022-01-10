@@ -92,9 +92,17 @@ const AddListing = () => {
                                             <label htmlFor="" className="mb-2">Investment</label>
                                             <select className='w-100 mb-2 py-2' {...register("investment")} name="investment" id="">
                                                 <option value="default">Amount</option>
-                                                <option value="$40000 - $90000">Under $40000 - $90000</option>
-                                                <option value="$60000 - $12000">Under $60000 - $12000</option>
-                                                <option value="$70000 - $140000">Under $70000 - $140000</option>
+                                                <option value="$10000 - $50000">$10000 - $50000</option>
+                                                <option value="$50000 - $100000">$50000 - $100000</option>
+                                                <option value="$100000 - $150000">$100000 - $150000</option>
+                                                <option value="$150000 - $200000">$150000 - $200000</option>
+                                                <option value="$200000 - $250000">$200000 - $250000</option>
+                                                <option value="$250000 - $300000">$250000 - $300000</option>
+                                                <option value="$300000 - $350000">$300000 - $350000</option>
+                                                <option value="$350000 - $400000">$350000 - $400000</option>
+                                                <option value="$400000 - $450000">$400000 - $450000</option>
+                                                <option value="$450000 - $500000">$450000 - $500000</option>
+                                                <option value="$500000 - $1000000">$500000 - $1000000</option>
                                             </select>
                                         </div>
                                     </Col>
@@ -107,8 +115,10 @@ const AddListing = () => {
 
                                 </Row>
                                 <div className='pb-2'>
-                                    <label className='mb-2' htmlFor="">Description</label>
-                                    <textarea {...register("description")} className='w-100' name="description" id="" cols="30" rows="5" placeholder='Text'></textarea>
+                                    <label className='mb-2' htmlFor="">About</label>
+                                    <textarea {...register("description")} className='w-100' name="description" id="" cols="30" rows="5" placeholder='About'></textarea>
+                                    <label className='mb-2 pt-2' htmlFor="">Curriculum</label>
+                                    <textarea {...register("curriculum")} className='w-100' name="description" id="" cols="30" rows="5" placeholder='Curriculum'></textarea>
                                 </div>
                                 <input className='py-2 px-3' type="submit" value="Add Listing" />
                             </form>
