@@ -25,7 +25,7 @@ const TopListing = () => {
                     {
                         listing.slice(0, 4).map(listing => <Col
                             key={listing?._id}
-                            xs={12} md={3}>
+                            xs={12} lg={3} sm={6}>
                             <Listing listing={listing} />
                         </Col>)
                     }

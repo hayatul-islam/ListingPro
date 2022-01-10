@@ -42,5 +42,31 @@
     
 }
 
-
-/* https://st4.depositphotos.com/24046444/25509/v/600/depositphotos_255095564-stock-video-abstract-animated-business-presentation-background.jpg */
+@media (min-width: 0px) and (max-width: 450px){
+    .brands-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+}
+@media (min-width: 450px) and (max-width: 600px){
+    .brands-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+}
+@media (min-width: 600px) and (max-width: 767px){
+    .brands-container{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        
+    }
+}
+@media (min-width: 767px) and (max-width: 992px){
+    .brands-container{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        
+    }
+}

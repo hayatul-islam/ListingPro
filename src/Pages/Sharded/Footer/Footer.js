@@ -8,10 +8,10 @@ const Footer = () => {
             <div className='bg-black py-5 text-light'>
                 <Container>
                     <Row>
-                        <Col xs={6} md={3}>
-                            <div>
-                                <Image className='mb-3' src="https://classic.listingprowp.com/wp-content/uploads/2017/01/listingpro-logo.png" />
-                                <p className='mt-4'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex beatae ipsum delectus inventore in? Nulla natus dolores asperiores voluptatibus amet!</p>
+                        <Col xs={6} lg={3}>
+                            <div className='contact-container'>
+                                <Image className='' src="https://classic.listingprowp.com/wp-content/uploads/2017/01/listingpro-logo.png" />
+                                <p className=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex beatae ipsum delectus inventore in? Nulla natus dolores asperiores voluptatibus amet!</p>
                                 <div className='d-flex text-dark social-media mt-4'>
                                     <div className='social-icon'>
                                         <i class="fab fa-facebook"></i>
@@ -25,7 +25,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} lg={3}>
                             <div className='contact-container'>
                                 <h3>About Us</h3>
                                 <p>Home</p>
@@ -34,7 +34,7 @@ const Footer = () => {
                                 <p>Training</p>
                             </div>
                         </Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} lg={3}>
                             <div className='contact-container'>
                                 <h3>Blog</h3>
                                 <p>Blog 1</p>
@@ -43,7 +43,7 @@ const Footer = () => {
                                 <p>Blog 4</p>
                             </div>
                         </Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} lg={3}>
                             <div className='contact-container'>
                                 <h3>Contact Us</h3>
                                 <div className='d-flex align-items-center mb-3'>
