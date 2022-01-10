@@ -1,22 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import axios from 'axios';
 import useListing from '../../Hooks/useListing';
 
 const AddListing = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const { category } = useListing();
+    const [saveImage, setSaveImage] = useState();
 
-    const onSubmit = data => {
-        console.log(data);
-        axios.post('https://boiling-taiga-51973.herokuapp.com/addListing', data)
+    const onSubmit = (data => {
+        data.image = saveImage;
+        fetch('https://boiling-taiga-51973.herokuapp.com/addListing', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
             .then((result) => {
-                if (result.data.insertedId) {
-                    reset();
+                if (result.insertedId) {
+                    reset()
                 }
             })
+
+    });
+
+    const imageUploader = async (e) => {
+        const base64 = await convertBase64(e.target.files[0]);
+        setSaveImage(base64);
+    };
+
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            };
+            fileReader.onerror = (error) => {
+                reject(error);
+            };
+        });
     };
 
     return (
@@ -47,8 +71,8 @@ const AddListing = () => {
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
-                                            <label htmlFor="" className="mb-2">Image url</label>
-                                            <input className='w-100 mb-2 py-1' {...register("image", { required: true })} type="text" name="image" id="" placeholder='Url' />
+                                            <label htmlFor="" className="mb-2">Listing Image</label>
+                                            <input onChange={imageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Listing image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
