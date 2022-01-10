@@ -1,19 +1,23 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import useFirebase from '../../../Hooks/useFirebase';
 
-const PrivateRoute = ({ user }) => {
+const PrivateRoute = ({ children, ...rest }) => {
 
-    const { isLoading } = useFirebase();
+    const location = useLocation();
+    const { isLoading, user } = useFirebase();
 
     if (isLoading) {
         return <div className="text-center p-5">
             <Spinner animation="border" variant="dark" />
         </div>
     }
+    if (user?.email) {
+        return children
+    }
 
-    return user.email ? <Outlet /> : <Navigate to="/login" />;
+    return <Navigate to="/login" state={{ from: location }} />;
 
 
 };

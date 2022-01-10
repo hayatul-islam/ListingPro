@@ -1,15 +1,15 @@
 import React from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import useFirebase from '../../../Hooks/useFirebase';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 
 const Login = () => {
 
-    const { googleSignIn, handleUserLogin, logOut, user, error } = useFirebase();
+    const { googleSignIn, handleUserLogin, setIsLoading, error } = useFirebase();
 
     const location = useLocation()
-    const redirect_url = location.state?.from || '/';
+    const redirect_url = location?.state?.from || '/';
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
@@ -19,14 +19,15 @@ const Login = () => {
     };
 
     const handleGoogle = () => {
+        setIsLoading(true)
         googleSignIn()
             .then(() => {
                 navigate(redirect_url)
             })
+            .finally(() => {
+                setIsLoading(false)
+            })
     }
-
-
-
     return (
         <div className="py-5 mt-5">
             <Container>

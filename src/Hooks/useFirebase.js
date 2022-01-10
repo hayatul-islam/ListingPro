@@ -13,15 +13,13 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
     const googleSignIn = () => {
-        setIsLoading(true);
         return signInWithPopup(auth, googleProvider)
-            .finally(() => {
-                setIsLoading(false)
-            })
+
     }
 
     const handleUserRegister = (email, password, name, location, navigate) => {
 
+        console.log(location);
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
@@ -70,10 +68,12 @@ const useFirebase = () => {
         onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user)
+            } else {
+                setUser({})
             }
             setIsLoading(false)
         })
-    });
+    }, []);
 
     const logOut = () => {
         signOut(auth).then(() => {
@@ -87,6 +87,7 @@ const useFirebase = () => {
         user,
         isLoading,
         error,
+        setIsLoading,
         googleSignIn,
         handleUserRegister,
         handleUserLogin,

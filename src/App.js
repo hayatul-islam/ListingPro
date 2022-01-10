@@ -23,12 +23,9 @@ import ByInvestmentDetails from './Pages/ByInvestmentDetails/ByInvestmentDetails
 import SearchDetails from './Pages/SearchDetails/SearchDetails';
 import Login from './Pages/Sharded/Login/Login';
 import PrivateRoute from './Pages/Sharded/Login/PrivateRoute';
-import useFirebase from './Hooks/useFirebase';
 import Register from './Pages/Sharded/Register/Register';
 
 function App() {
-
-  const { user } = useFirebase()
 
   return (
     <div>
@@ -40,9 +37,11 @@ function App() {
           <Route path="byInvestment" element={<ByInvestment />} />
           <Route path="contact" element={<Contact />} />
           <Route path="allListing" element={<AllListing />} />
-          <Route element={<PrivateRoute user={user} />}>
-            <Route path="dashboard" element={<Dashboard />} />
-          </Route>
+
+          <Route path="dashboard" element={<PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>}></Route>
+
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="listingDetails/:listingId" element={<ListingDetails />} />

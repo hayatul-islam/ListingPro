@@ -8,6 +8,7 @@ import SearchListing from '../Listings/SearchListing/SearchListing';
 const ByInvestmentDetails = () => {
     const { level } = useParams();
     const [investmentLevel, setInvestmentLevel] = useState([]);
+    const [pageNumber, setPageNumber] = useState(0);
 
     useEffect(() => {
         fetch('https://aqueous-garden-52898.herokuapp.com/listing')
@@ -19,7 +20,7 @@ const ByInvestmentDetails = () => {
             })
     }, [investmentLevel]);
 
-    const [pageNumber, setPageNumber] = useState(0);
+
 
     const perPage = 16;
     const pagesVisited = pageNumber * perPage;
