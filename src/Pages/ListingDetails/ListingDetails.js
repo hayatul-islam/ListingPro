@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { Col, Container, Image, Row, Carousel } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import './ListingDetails.css';
 import emailjs from '@emailjs/browser';
@@ -42,32 +41,56 @@ const ListingDetails = () => {
         <div className='py-5 listingDetails'>
             <Container>
                 <Row>
-                    <div>
-                        <Image className='' src={image} />
-                        <h2 className='pt-5'>{title}</h2>
-                    </div>
-                    <Col xs={12} md={8}>
-                        <Row className='mb-5 businessInfoContainer'>
-                            <Col xs={12} md={4}>
-                                <div className='businessInfo'>
-                                    <p>Total Capital</p>
-                                    <h2>${totalCash}</h2>
-                                </div>
-                            </Col>
-                            <Col xs={12} md={4}>
+                    <Col xs={12} md={3}>
+                        <div>
+                            <Image className='' src={image} />
 
-                                <div className='businessInfo middleInfo'>
-                                    <p>Minimum Cash Required</p>
-                                    <h2>${minCash}</h2>
-                                </div>
-                            </Col>
-                            <Col xs={12} md={4}>
-                                <div className='businessInfo'>
-                                    <p>Total Investment</p>
-                                    <h2>{investment}</h2>
-                                </div>
-                            </Col>
-                        </Row>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={9}>
+                        <Carousel>
+                            <Carousel.Item interval={1000}>
+                                <img
+                                    className="d-block w-100 sliderImage"
+                                    src="https://previews.123rf.com/images/csiling1/csiling12006/csiling1200600525/149437424-webinar-online-learning-banner-background-with-icons.jpg"
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={500}>
+                                <img
+                                    className="d-block w-100 sliderImage"
+                                    src="https://t3.ftcdn.net/jpg/04/29/58/32/360_F_429583270_ByVcEkt4kIyagAS1gBychaTuSt3M7YR9.jpg "
+                                    alt="Second slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block w-100 sliderImage"
+                                    src="http://www.uiu.ac.bd/wp-content/uploads/2019/10/Backdrop-Banner.jpg"
+                                    alt="Third slide"
+                                />
+                            </Carousel.Item>
+                        </Carousel>
+                    </Col>
+                </Row>
+
+                <h2 className='pt-5'>{title}</h2>
+                <div className='businessInfoContainer'>
+                    <div className='businessInfo'>
+                        <p>Total Capital</p>
+                        <h2>${totalCash}</h2>
+                    </div>
+                    <div className='businessInfo middleInfo'>
+                        <p>Minimum Cash Required</p>
+                        <h2>${minCash}</h2>
+                    </div>
+                    <div className='businessInfo'>
+                        <p>Total Investment</p>
+                        <h2>{investment}</h2>
+                    </div>
+                </div>
+                <Row>
+                    <Col xs={12} md={8}>
                         <div className='businessDetails'>
                             <div>
 
@@ -165,7 +188,7 @@ const ListingDetails = () => {
                     </Col>
                 </Row>
             </Container>
-        </div>
+        </div >
     );
 };
 

@@ -11,6 +11,8 @@
     border: 1px solid #dbdbdb;
     text-align: center;
     padding: 8px 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 .middleInfo {
     border-left: 1px solid #dbdbdb;
@@ -60,4 +62,7 @@
     border-radius: 4px;
     margin-top: 20px;
     background: #fff;
+}
+.sliderImage{
+    max-height: 300px;
 }
