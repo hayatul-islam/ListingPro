@@ -8,7 +8,7 @@ const ListingDetails = () => {
 
     const { listingId } = useParams();
     const [singleListing, setSingleListing] = useState({});
-    const { image, title, description, minCash, totalCash, investment } = singleListing;
+    const { image, title, description, minCash, totalCash, investment, curriculum, category, bannerImg, location } = singleListing;
     const form = useRef();
     const [message, setMessage] = useState('');
 
@@ -43,33 +43,22 @@ const ListingDetails = () => {
                 <Row>
                     <Col xs={12} md={3}>
                         <div>
-                            <Image className='' src={image} />
+                            <Image className='img-fluid' src={image} />
 
                         </div>
                     </Col>
                     <Col xs={12} md={9}>
                         <Carousel>
-                            <Carousel.Item interval={1000}>
-                                <img
-                                    className="d-block w-100 sliderImage"
-                                    src="https://previews.123rf.com/images/csiling1/csiling12006/csiling1200600525/149437424-webinar-online-learning-banner-background-with-icons.jpg"
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
-                            <Carousel.Item interval={500}>
-                                <img
-                                    className="d-block w-100 sliderImage"
-                                    src="https://t3.ftcdn.net/jpg/04/29/58/32/360_F_429583270_ByVcEkt4kIyagAS1gBychaTuSt3M7YR9.jpg "
-                                    alt="Second slide"
-                                />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                    className="d-block w-100 sliderImage"
-                                    src="http://www.uiu.ac.bd/wp-content/uploads/2019/10/Backdrop-Banner.jpg"
-                                    alt="Third slide"
-                                />
-                            </Carousel.Item>
+                            {
+                                bannerImg?.map(banner => <Carousel.Item interval={1000}>
+                                    <img
+                                        className="d-block w-100 sliderImage"
+                                        src={banner}
+                                        alt="First slide"
+                                    />
+                                </Carousel.Item>)
+                            }
+
                         </Carousel>
                     </Col>
                 </Row>
@@ -78,15 +67,23 @@ const ListingDetails = () => {
                 <div className='businessInfoContainer'>
                     <div className='businessInfo'>
                         <p>Total Capital</p>
-                        <h2>${totalCash}</h2>
+                        <h3>${totalCash}</h3>
                     </div>
                     <div className='businessInfo middleInfo'>
-                        <p>Minimum Cash Required</p>
-                        <h2>${minCash}</h2>
+                        <p>Cash Required</p>
+                        <h3>${minCash}</h3>
                     </div>
                     <div className='businessInfo'>
                         <p>Total Investment</p>
-                        <h2>{investment}</h2>
+                        <h3>{investment}</h3>
+                    </div>
+                    <div className='businessInfo middleInfo'>
+                        <p>Category</p>
+                        <h3>{category}</h3>
+                    </div>
+                    <div className='businessInfo middleInfo'>
+                        <p>Location</p>
+                        <h3>{location}</h3>
                     </div>
                 </div>
                 <Row>
@@ -103,7 +100,7 @@ const ListingDetails = () => {
                             </div>
                             <div>
                                 <h5>Our Exclusive Curriculum</h5>
-                                <p>Extending our mindful curriculum to digital learning, it introduces your child to new concepts and focusses on age-appropriate skill development.</p>
+                                <p>{curriculum}</p>
                             </div>
                         </div>
                         <div className='businessDetails'>

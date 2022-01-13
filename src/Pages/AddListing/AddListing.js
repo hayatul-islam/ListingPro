@@ -8,10 +8,14 @@ const AddListing = () => {
     const { register, handleSubmit, reset } = useForm();
     const { category } = useListing();
     const [saveImage, setSaveImage] = useState();
+    const [bannerImage, setBannerImage] = useState([]);
 
     const onSubmit = (data => {
         data.image = saveImage;
-        fetch('https://boiling-taiga-51973.herokuapp.com/addListing', {
+        data.bannerImg = bannerImage;
+        console.log(data);
+        fetch('https://aqueous-garden-52898.herokuapp.com/addListing', {
+            // fetch('http://localhost:4040/addListing', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -28,6 +32,10 @@ const AddListing = () => {
     const imageUploader = async (e) => {
         const base64 = await convertBase64(e.target.files[0]);
         setSaveImage(base64);
+    };
+    const bannerImageUploader = async (e) => {
+        const base64 = await convertBase64(e.target.files[0]);
+        setBannerImage([...bannerImage, base64]);
     };
 
     const convertBase64 = (file) => {
@@ -112,13 +120,30 @@ const AddListing = () => {
                                             <input className='w-100 mb-2 py-1' {...register("location", { required: true })} placeholder='Location' />
                                         </div>
                                     </Col>
-
+                                    <Col xs={12} md={6}>
+                                        <div className='pb-2'>
+                                            <label htmlFor="" className="mb-2">Banner Image</label>
+                                            <input onChange={bannerImageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                        </div>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='pb-2'>
+                                            <label htmlFor="" className="mb-2">Banner Image</label>
+                                            <input onChange={bannerImageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                        </div>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <div className='pb-2'>
+                                            <label htmlFor="" className="mb-2">Banner Image</label>
+                                            <input onChange={bannerImageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                        </div>
+                                    </Col>
                                 </Row>
                                 <div className='pb-2'>
                                     <label className='mb-2' htmlFor="">About</label>
                                     <textarea {...register("description")} className='w-100' name="description" id="" cols="30" rows="5" placeholder='About'></textarea>
                                     <label className='mb-2 pt-2' htmlFor="">Curriculum</label>
-                                    <textarea {...register("curriculum")} className='w-100' name="description" id="" cols="30" rows="5" placeholder='Curriculum'></textarea>
+                                    <textarea {...register("curriculum")} className='w-100' name="curriculum" id="" cols="30" rows="5" placeholder='Curriculum'></textarea>
                                 </div>
                                 <input className='py-2 px-3' type="submit" value="Add Listing" />
                             </form>
