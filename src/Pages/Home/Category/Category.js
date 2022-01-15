@@ -12,7 +12,12 @@ const Category = ({ category }) => {
     return (
 
         <div onClick={() => brandDetail(category?.name)} className="brand-container py-4 m-2 rounded">
-            <img src={category?.image} />
+            {
+                category?.image?.slice(0, 4) === 'http' ?
+                    <img src={category?.image} />
+                    :
+                    <img src={`data:image/png;base64,${category?.image}`} />
+            }
             <h6 className="pt-3">{category?.name}</h6>
         </div>
     );

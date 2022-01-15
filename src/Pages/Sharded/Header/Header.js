@@ -49,8 +49,6 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto navbarMenu">
-                            <NavLink className="text-white" to="">Home</NavLink>
-
                             <NavDropdown className='navDropdownBtn text-light' id="nav-dropdown-dark-example"
                                 menuVariant="light" title="By Industry">
                                 <Row>

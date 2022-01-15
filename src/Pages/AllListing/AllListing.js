@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import PulseLoader from "react-spinners/PulseLoader";
 import './AllListing.css';
+import SearchListing from '../Listings/SearchListing/SearchListing';
 
 const AllListing = () => {
 
@@ -33,8 +34,6 @@ const AllListing = () => {
         setPageNumber(selected)
     }
 
-
-
     const handleListingDetails = id => {
         navigate(`/listingDetails/${id}`)
         console.log(id);
@@ -49,10 +48,8 @@ const AllListing = () => {
                 </div> :
 
                     <Container>
+                        <SearchListing />
                         <Row>
-                            <div className='pb-5 text-center'>
-                                <h1>All Listing</h1>
-                            </div>
                             {
                                 // listing.map(listing => <Col
                                 listing.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col

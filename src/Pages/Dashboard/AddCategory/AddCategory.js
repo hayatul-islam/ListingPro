@@ -1,47 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import axios from "axios";
 
 const AddCategory = () => {
 
-    const { register, handleSubmit, reset } = useForm();
-    const [saveImage, setSaveImage] = useState();
+    const {
+        register,
+        handleSubmit,
+        formState: { },
+    } = useForm();
 
-    const onSubmit = (data => {
-        data.image = saveImage;
-        fetch('https://calm-dawn-39497.herokuapp.com/addCategory', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then((result) => {
-                if (result.insertedId) {
-                    reset()
+
+    const onSubmit = (data, e) => {
+        console.log(data);
+        const formData = new FormData();
+
+        formData.append("name", data.name);
+        formData.append("image", data.image[0]);
+
+        axios.post("https://calm-dawn-39497.herokuapp.com/addCategory", formData)
+            // axios.post("http://localhost:4040/addListing", formData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('successfully')
+                    e.target.reset();
                 }
             })
-
-    });
-
-
-    const imageUploader = async (e) => {
-        const base64 = await convertBase64(e.target.files[0]);
-        setSaveImage(base64);
-    };
-
-    const convertBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result);
-            };
-            fileReader.onerror = (error) => {
-                reject(error);
-            };
-        });
-    };
-
+    }
 
     return (
         <div>
@@ -60,7 +46,7 @@ const AddCategory = () => {
                                 <Col xs={12} md={6}>
                                     <div className='pb-2'>
                                         <label className='mb-2' htmlFor="">Category Image</label> <br />
-                                        <input onChange={imageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Category image' />
+                                        <input {...register("image", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Category image' />
                                     </div>
                                 </Col>
                             </Row>
