@@ -5,11 +5,9 @@ const useListing = () => {
     const [listing, setListing] = useState([]);
     const [category, cubCategory] = useState([]);
 
-    console.log(listing[0]?.image.slice(0, 5))
-
     useEffect(() => {
-        // fetch('https://aqueous-garden-52898.herokuapp.com/listing')
-        fetch('http://localhost:4040/listing')
+        fetch('https://aqueous-garden-52898.herokuapp.com/listing')
+            // fetch('http://localhost:4040/listing')
             .then(res => res.json())
             .then(data => {
 

@@ -13,7 +13,13 @@ const Listing = ({ listing }) => {
 
     return (
         <Card className='my-2' onClick={() => handleListingDetails(listing?._id)}>
-            <Card.Img className='img-fluid' variant="top" src={listing?.image} />
+            {
+                listing?.image?.slice(0, 4) === 'http' ?
+                    <Card.Img className='img-fluid' variant="top" src={listing?.image} />
+                    :
+                    <Card.Img className='img-fluid' variant="top" src={`data:image/png;base64,${listing?.image}`} />
+            }
+
             <Card.Body>
                 <Card.Title>{listing?.title}</Card.Title>
                 <Card.Text>

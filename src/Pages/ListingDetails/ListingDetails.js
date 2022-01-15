@@ -35,7 +35,6 @@ const ListingDetails = () => {
             });
 
     };
-    console.log(image?.slice(0, 4));
 
     return (
         <div className='py-5 listingDetails'>
@@ -54,27 +53,36 @@ const ListingDetails = () => {
                     </Col>
                     <Col xs={12} md={9}>
                         <Carousel>
-                            <Carousel.Item interval={1000}>
-                                <img
-                                    className="d-block w-100 sliderImage"
-                                    src={`data:image/png;base64,${bannerImg1}`}
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
-                            <Carousel.Item interval={1000}>
-                                <img
-                                    className="d-block w-100 sliderImage"
-                                    src={`data:image/png;base64,${bannerImg2}`}
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
-                            <Carousel.Item interval={1000}>
-                                <img
-                                    className="d-block w-100 sliderImage"
-                                    src={`data:image/png;base64,${bannerImg3}`}
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
+                            {
+                                bannerImg1 ?
+                                    <Carousel.Item interval={1000}>
+                                        <img
+                                            className="d-block w-100 sliderImage"
+                                            src={`data:image/png;base64,${bannerImg1}`}
+                                            alt="First slide"
+                                        />
+                                    </Carousel.Item> : ''
+                            }
+                            {
+                                bannerImg2 ?
+                                    <Carousel.Item interval={1000}>
+                                        <img
+                                            className="d-block w-100 sliderImage"
+                                            src={`data:image/png;base64,${bannerImg2}`}
+                                            alt="First slide"
+                                        />
+                                    </Carousel.Item> : ''
+                            }
+                            {
+                                bannerImg3 ?
+                                    <Carousel.Item interval={1000}>
+                                        <img
+                                            className="d-block w-100 sliderImage"
+                                            src={`data:image/png;base64,${bannerImg3}`}
+                                            alt="First slide"
+                                        />
+                                    </Carousel.Item> : ''
+                            }
                         </Carousel>
                     </Col>
                 </Row>
