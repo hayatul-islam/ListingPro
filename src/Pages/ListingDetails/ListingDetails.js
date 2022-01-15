@@ -13,7 +13,7 @@ const ListingDetails = () => {
     const [message, setMessage] = useState('');
 
     useEffect(() => {
-        fetch('https://boiling-taiga-51973.herokuapp.com/listing')
+        fetch('https://aqueous-garden-52898.herokuapp.com/listing')
             .then(res => res.json())
             .then(data => {
                 const findListing = data.find(listing => listing?._id === listingId);
