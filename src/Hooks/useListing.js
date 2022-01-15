@@ -6,18 +6,20 @@ const useListing = () => {
     const [category, cubCategory] = useState([]);
 
     useEffect(() => {
-        fetch('https://aqueous-garden-52898.herokuapp.com/listing')
+        fetch('https://calm-dawn-39497.herokuapp.com/listing')
             // fetch('http://localhost:4040/listing')
             .then(res => res.json())
             .then(data => {
-
                 setListing(data);
 
             })
+            .catch(error => {
+                console.log(error);
+            });
     }, []);
 
     useEffect(() => {
-        fetch('https://aqueous-garden-52898.herokuapp.com/category')
+        fetch('https://calm-dawn-39497.herokuapp.com/category')
             .then(res => res.json())
             .then(data => cubCategory(data))
     })

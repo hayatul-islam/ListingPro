@@ -79,8 +79,8 @@ const AddListing = () => {
         formData.append("category", data.category);
         formData.append("location", data.location);
 
-        axios.post("https://aqueous-garden-52898.herokuapp.com/addListing", formData)
-        axios.post("http://localhost:4040/addListing", formData)
+        axios.post("https://calm-dawn-39497.herokuapp.com/addListing", formData)
+            // axios.post("http://localhost:4040/addListing", formData)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('successfully')

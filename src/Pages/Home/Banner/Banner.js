@@ -11,7 +11,7 @@ const Banner = () => {
 
 
     useEffect(() => {
-        fetch('https://aqueous-garden-52898.herokuapp.com/category')
+        fetch('https://calm-dawn-39497.herokuapp.com/category')
             // fetch('brand.json')
             .then(res => res.json())
             .then(data => setCategory(data))

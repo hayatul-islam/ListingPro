@@ -9,7 +9,7 @@ const AddCategory = () => {
 
     const onSubmit = (data => {
         data.image = saveImage;
-        fetch('https://aqueous-garden-52898.herokuapp.com/addCategory', {
+        fetch('https://calm-dawn-39497.herokuapp.com/addCategory', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

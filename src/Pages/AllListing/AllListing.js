@@ -24,10 +24,13 @@ const AllListing = () => {
 
 
     useEffect(() => {
-        fetch('https://boiling-taiga-51973.herokuapp.com/listing')
+        fetch('https://calm-dawn-39497.herokuapp.com/listing')
             // fetch('listing.json')
             .then(res => res.json())
             .then(data => setListing(data))
+            .catch(error => {
+                console.log(error);
+            })
     }, []);
 
     const handleListingDetails = id => {
