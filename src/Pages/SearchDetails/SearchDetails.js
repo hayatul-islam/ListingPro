@@ -4,12 +4,16 @@ import ReactPaginate from 'react-paginate';
 import { useParams } from 'react-router-dom';
 import Listing from '../Home/Listing/Listing';
 import SearchListing from '../Listings/SearchListing/SearchListing';
+import PulseLoader from "react-spinners/PulseLoader";
 
 const SearchDetails = () => {
     const { category, investment, searchValue } = useParams();
     const [search, setSearch] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [pageNumber, setPageNumber] = useState(0);
 
     useEffect(() => {
+        // setIsLoading(true)
         fetch('https://boiling-taiga-51973.herokuapp.com/listing')
             .then(res => res.json())
             .then(data => {
@@ -30,13 +34,14 @@ const SearchDetails = () => {
 
             }).catch(error => {
                 console.log(error);
-            });
+            })
+            .finally(() => {
+                // setIsLoading(false)
+            })
     }, [search]);
 
 
     // pagination 
-    const [pageNumber, setPageNumber] = useState(0);
-
     const perPage = 8;
     const pagesVisited = pageNumber * perPage;
     const pageCount = Math.ceil(search.length / perPage);
@@ -46,31 +51,41 @@ const SearchDetails = () => {
 
     return (
         <div className='py-5'>
-            <SearchListing />
-            <Container>
-                <Row>
-                    {
-                        search?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
-                            key={listing?._id}
-                            xs={12} md={3}>
-                            <Listing listing={listing} />
-                        </Col>)
-                    }
-                </Row>
-                <div className="pt-5 d-flex justify-content-center">
-                    <ReactPaginate
-                        previousLabel={"Previous"}
-                        nextLabel={"Next"}
-                        pageCount={pageCount}
-                        onPageChange={changePage}
-                        containerClassName={"paginationBttns"}
-                        previousLinkClassName={"previousBttn"}
-                        nextLinkClassName={"nextBttn"}
-                        disabledClassName={"paginationDisabled"}
-                        activeClassName={"paginationActive"}
-                    />
-                </div>
-            </Container>
+            {
+                isLoading ? <div className="sweet-loading text-center">
+                    <PulseLoader
+                        size={10} color={'black'} />
+                </div> :
+                    <div>
+
+
+                        <SearchListing />
+                        <Container>
+                            <Row>
+                                {
+                                    search?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
+                                        key={listing?._id}
+                                        xs={12} md={3}>
+                                        <Listing listing={listing} />
+                                    </Col>)
+                                }
+                            </Row>
+                            <div className="pt-5 d-flex justify-content-center">
+                                <ReactPaginate
+                                    previousLabel={"Previous"}
+                                    nextLabel={"Next"}
+                                    pageCount={pageCount}
+                                    onPageChange={changePage}
+                                    containerClassName={"paginationBttns"}
+                                    previousLinkClassName={"previousBttn"}
+                                    nextLinkClassName={"nextBttn"}
+                                    disabledClassName={"paginationDisabled"}
+                                    activeClassName={"paginationActive"}
+                                />
+                            </div>
+                        </Container>
+                    </div>
+            }
         </div>
     );
 };

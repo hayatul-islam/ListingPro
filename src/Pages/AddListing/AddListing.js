@@ -9,53 +9,6 @@ const AddListing = () => {
     // const { register, handleSubmit, reset } = useForm();
     const { category } = useListing();
 
-
-    // const [saveImage, setSaveImage] = useState();
-    // const [bannerImage, setBannerImage] = useState([]);
-
-    // const onSubmit = (data => {
-    //     data.image = saveImage;
-    //     data.bannerImg = bannerImage;
-    //     console.log(data);
-    //     fetch('https://aqueous-garden-52898.herokuapp.com/addListing', {
-    //         fetch('http://localhost:4040/addListing', {
-    //         method: 'POST',
-    //         headers: { 'content-type': 'application/json' },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then((result) => {
-    //             if (result.insertedId) {
-    //                 reset()
-    //             }
-    //         })
-
-    // });
-
-
-
-    // const imageUploader = async (e) => {
-    //     const base64 = await convertBase64(e.target.files[0]);
-    //     setSaveImage(base64);
-    // };
-    // const bannerImageUploader = async (e) => {
-    //     const base64 = await convertBase64(e.target.files[0]);
-    //     setBannerImage([...bannerImage, base64]);
-    // };
-
-    // const convertBase64 = (file) => {
-    //     return new Promise((resolve, reject) => {
-    //         const fileReader = new FileReader();
-    //         fileReader.readAsDataURL(file);
-    //         fileReader.onload = () => {
-    //             resolve(fileReader.result);
-    //         };
-    //         fileReader.onerror = (error) => {
-    //             reject(error);
-    //         };
-    //     });
-    // };
-
     const {
         register,
         handleSubmit,

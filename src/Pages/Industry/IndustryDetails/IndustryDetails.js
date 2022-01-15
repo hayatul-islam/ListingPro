@@ -5,11 +5,12 @@ import { useParams } from 'react-router-dom';
 import useListing from '../../../Hooks/useListing';
 import Listing from '../../Home/Listing/Listing';
 import SearchListing from '../../Listings/SearchListing/SearchListing';
+import PulseLoader from "react-spinners/PulseLoader";
 
 const IndustryDetails = () => {
 
     const { industryName } = useParams();
-    const { listing } = useListing();
+    const { listing, isLoading } = useListing();
 
     const filterListing = listing?.filter(list => list?.category === industryName);
 
@@ -25,33 +26,39 @@ const IndustryDetails = () => {
 
     return (
         <div className='py-5'>
-            <Container>
-                <SearchListing />
-                <Row>
-                    {
-                        filterListing.slice(pagesVisited, pagesVisited + perPage)?.map(listing => <Col
-                            key={listing?._id}
-                            xs={12} md={3}>
-                            <Listing listing={listing} />
-                        </Col>)
-                    }
-                </Row>
+            {
+                isLoading ? <div className="sweet-loading text-center">
+                    <PulseLoader
+                        size={10} color={'black'} />
+                </div> :
 
-                <div className="pt-5 d-flex justify-content-center">
-                    <ReactPaginate
-                        previousLabel={"Previous"}
-                        nextLabel={"Next"}
-                        pageCount={pageCount}
-                        onPageChange={changePage}
-                        containerClassName={"paginationBttns"}
-                        previousLinkClassName={"previousBttn"}
-                        nextLinkClassName={"nextBttn"}
-                        disabledClassName={"paginationDisabled"}
-                        activeClassName={"paginationActive"}
-                    />
-                </div>
+                    <Container>
+                        <SearchListing />
+                        <Row>
+                            {
+                                filterListing.slice(pagesVisited, pagesVisited + perPage)?.map(listing => <Col
+                                    key={listing?._id}
+                                    xs={12} md={3}>
+                                    <Listing listing={listing} />
+                                </Col>)
+                            }
+                        </Row>
 
-            </Container>
+                        <div className="pt-5 d-flex justify-content-center">
+                            <ReactPaginate
+                                previousLabel={"Previous"}
+                                nextLabel={"Next"}
+                                pageCount={pageCount}
+                                onPageChange={changePage}
+                                containerClassName={"paginationBttns"}
+                                previousLinkClassName={"previousBttn"}
+                                nextLinkClassName={"nextBttn"}
+                                disabledClassName={"paginationDisabled"}
+                                activeClassName={"paginationActive"}
+                            />
+                        </div>
+                    </Container>
+            }
         </div>
     );
 };

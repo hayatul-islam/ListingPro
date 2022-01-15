@@ -4,13 +4,17 @@ import ReactPaginate from 'react-paginate';
 import { useParams } from 'react-router-dom';
 import Listing from '../../Home/Listing/Listing';
 import SearchListing from '../SearchListing/SearchListing';
+import PulseLoader from "react-spinners/PulseLoader";
 
 const FindSearchListing = () => {
 
     const { category, investment } = useParams();
     const [search, setSearch] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
+        // setIsLoading(true)
         fetch('https://boiling-taiga-51973.herokuapp.com/listing')
             .then(res => res.json())
             .then(data => {
@@ -31,14 +35,11 @@ const FindSearchListing = () => {
 
             }).catch(error => {
                 console.log(error);
-            });
+            })
+            .finally(() => {
+                // setIsLoading(false)
+            })
     }, [search]);
-
-    // const justCategory = listing?.filter(list => list?.category === category);
-    // const categoryAndInvestment = listing?.filter(list => list?.category === category && parseFloat(list?.totalCash) <= parseFloat(investment));
-
-    // const onlyInvestment = listing?.filter(list => parseFloat(list?.totalCash) <= parseFloat(investment))
-
 
 
     // pagination 
@@ -51,75 +52,42 @@ const FindSearchListing = () => {
         setPageNumber(selected)
     }
 
-
-
-
-
     return (
         <div className='py-5'>
-            <SearchListing />
-            <Container>
-                <Row>
+            {
+                isLoading ? <div className="sweet-loading text-center">
+                    <PulseLoader
+                        size={10} color={'black'} />
+                </div> :
+                    <div>
+                        <SearchListing />
+                        <Container>
+                            <Row>
+                                {
 
-
-                    {
-
-                        search?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
-                            key={listing?._id}
-                            xs={12} md={3}>
-                            <Listing listing={listing} />
-                        </Col>)
-                    }
-
-                    {/* {
-                        category === 'all' && investment === 'all' ?
-                            listing?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
-                                key={listing?._id}
-                                xs={12} md={3}>
-                                <Listing listing={listing} />
-                            </Col>) : ''
-                    }
-                    {
-                        category && investment === 'all' ?
-                            justCategory.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
-                                key={listing?._id}
-                                xs={12} md={3}>
-                                <Listing listing={listing} />
-                            </Col>) : ''
-                    }
-                    {
-                        category && investment !== 'all' ?
-                            categoryAndInvestment?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
-                                key={listing?._id}
-                                xs={12} md={3}>
-                                <Listing listing={listing} />
-                            </Col>) : ''
-                    }
-                    {
-                        category === 'all' && investment ?
-                            onlyInvestment?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
-                                key={listing?._id}
-                                xs={12} md={3}>
-                                <Listing listing={listing} />
-                            </Col>) : ''
-                    } */}
-
-
-                </Row>
-                <div className="pt-5 d-flex justify-content-center">
-                    <ReactPaginate
-                        previousLabel={"Previous"}
-                        nextLabel={"Next"}
-                        pageCount={pageCount}
-                        onPageChange={changePage}
-                        containerClassName={"paginationBttns"}
-                        previousLinkClassName={"previousBttn"}
-                        nextLinkClassName={"nextBttn"}
-                        disabledClassName={"paginationDisabled"}
-                        activeClassName={"paginationActive"}
-                    />
-                </div>
-            </Container>
+                                    search?.slice(pagesVisited, pagesVisited + perPage).map(listing => <Col
+                                        key={listing?._id}
+                                        xs={12} md={3}>
+                                        <Listing listing={listing} />
+                                    </Col>)
+                                }
+                            </Row>
+                            <div className="pt-5 d-flex justify-content-center">
+                                <ReactPaginate
+                                    previousLabel={"Previous"}
+                                    nextLabel={"Next"}
+                                    pageCount={pageCount}
+                                    onPageChange={changePage}
+                                    containerClassName={"paginationBttns"}
+                                    previousLinkClassName={"previousBttn"}
+                                    nextLinkClassName={"nextBttn"}
+                                    disabledClassName={"paginationDisabled"}
+                                    activeClassName={"paginationActive"}
+                                />
+                            </div>
+                        </Container>
+                    </div>
+            }
         </div>
     );
 };

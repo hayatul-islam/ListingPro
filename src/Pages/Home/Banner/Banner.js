@@ -4,17 +4,26 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Category from '../Category/Category';
 import './Banner.css';
+import BeatLoader from "react-spinners/BeatLoader";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Banner = () => {
     const [category, setCategory] = useState([]);
-    const [searchData, setSearchData] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
 
     useEffect(() => {
+        setIsLoading(true)
         fetch('https://calm-dawn-39497.herokuapp.com/category')
             // fetch('brand.json')
             .then(res => res.json())
             .then(data => setCategory(data))
+            .catch(error => {
+                console.log(error);
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
     }, []);
 
     const navigate = useNavigate();
@@ -82,34 +91,35 @@ const Banner = () => {
                             </div>
                         </Col>
                         <Col xs={12} md={6}>
-
-                            {/* <img className='w-100 rounded' src="https://i.ibb.co/L1Q3FBn/two-business-partners-handshaking-74855-6685-removebg-preview.png" alt="" /> */}
-                            {/* <img className='w-100 rounded' src="https://i.ibb.co/Y2zHb1c/coach-speaking-before-audience-mentor-presenting-charts-reports-employees-meeting-business-training.png" alt="" /> */}
-                            {/* <img className='w-100 rounded' src="https://lh3.googleusercontent.com/proxy/30uvBnwUVsa8RwaCwccou5ieLx47JCGBbS_-pHsZ_PMlbi1nfhg_VOm04uhR25J3xYBX_AjbZlNeG-Acu4Nxvd3UCsrgjI4gwMuBfFegjwzCmnF8O85SVQpLz2iH" alt="" /> */}
-                            {/* <img className='w-100 rounded' src="https://www.pngall.com/wp-content/uploads/2016/06/Business-PNG-Clipart.png" alt="" /> */}
                             <div>
                                 <img className='w-100 rounded' src="https://www.pngall.com/wp-content/uploads/2016/06/Business-Free-Download-PNG.png" alt="" />
                             </div>
                         </Col>
 
                     </Row>
-
-
                 </Container>
             </div>
 
 
             <div className='brands-section text-center py-4'>
                 <h3 className='text-light pb-3'>Popular Category</h3>
-                <div className="brands-container">
-                    {
-                        category.map(category => <Category
-                            key={category?._id}
-                            category={category}
-                        ></Category>)
-                    }
+                {
+                    isLoading ? <div className="sweet-loading">
+                        <PulseLoader
+                            size={10} color={'white'} />
+                    </div>
+                        :
 
-                </div>
+                        <div className="brands-container">
+                            {
+                                category.map(category => <Category
+                                    key={category?._id}
+                                    category={category}
+                                ></Category>)
+                            }
+                        </div>
+                }
+
             </div>
         </div>
     );
