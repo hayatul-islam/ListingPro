@@ -2,54 +2,94 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import useListing from '../../Hooks/useListing';
+import axios from "axios";
 
 const AddListing = () => {
 
-    const { register, handleSubmit, reset } = useForm();
+    // const { register, handleSubmit, reset } = useForm();
     const { category } = useListing();
-    const [saveImage, setSaveImage] = useState();
-    const [bannerImage, setBannerImage] = useState([]);
 
-    const onSubmit = (data => {
-        data.image = saveImage;
-        data.bannerImg = bannerImage;
+
+    // const [saveImage, setSaveImage] = useState();
+    // const [bannerImage, setBannerImage] = useState([]);
+
+    // const onSubmit = (data => {
+    //     data.image = saveImage;
+    //     data.bannerImg = bannerImage;
+    //     console.log(data);
+    //     fetch('https://aqueous-garden-52898.herokuapp.com/addListing', {
+    //         fetch('http://localhost:4040/addListing', {
+    //         method: 'POST',
+    //         headers: { 'content-type': 'application/json' },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(res => res.json())
+    //         .then((result) => {
+    //             if (result.insertedId) {
+    //                 reset()
+    //             }
+    //         })
+
+    // });
+
+
+
+    // const imageUploader = async (e) => {
+    //     const base64 = await convertBase64(e.target.files[0]);
+    //     setSaveImage(base64);
+    // };
+    // const bannerImageUploader = async (e) => {
+    //     const base64 = await convertBase64(e.target.files[0]);
+    //     setBannerImage([...bannerImage, base64]);
+    // };
+
+    // const convertBase64 = (file) => {
+    //     return new Promise((resolve, reject) => {
+    //         const fileReader = new FileReader();
+    //         fileReader.readAsDataURL(file);
+    //         fileReader.onload = () => {
+    //             resolve(fileReader.result);
+    //         };
+    //         fileReader.onerror = (error) => {
+    //             reject(error);
+    //         };
+    //     });
+    // };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { },
+    } = useForm();
+
+
+    const onSubmit = (data, e) => {
         console.log(data);
-        fetch('https://aqueous-garden-52898.herokuapp.com/addListing', {
-            // fetch('http://localhost:4040/addListing', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then((result) => {
-                if (result.insertedId) {
-                    reset()
+        const formData = new FormData();
+
+        formData.append("title", data.title);
+        formData.append("investment", data.investment);
+        formData.append("minCash", data.minCash);
+        formData.append("totalCash", data.totalCash);
+        formData.append("description", data.description);
+        formData.append("image", data.image[0]);
+        formData.append("banner1", data.banner1[0]);
+        formData.append("banner2", data.banner2[0]);
+        formData.append("banner3", data.banner3[0]);
+        formData.append("category", data.category);
+        formData.append("location", data.location);
+
+        axios.post("http://localhost:4040/addListing", formData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('successfully')
+                    e.target.reset();
                 }
             })
+    }
 
-    });
 
-    const imageUploader = async (e) => {
-        const base64 = await convertBase64(e.target.files[0]);
-        setSaveImage(base64);
-    };
-    const bannerImageUploader = async (e) => {
-        const base64 = await convertBase64(e.target.files[0]);
-        setBannerImage([...bannerImage, base64]);
-    };
 
-    const convertBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result);
-            };
-            fileReader.onerror = (error) => {
-                reject(error);
-            };
-        });
-    };
 
     return (
         <div className='py-5'>
@@ -80,7 +120,7 @@ const AddListing = () => {
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Listing Image</label>
-                                            <input onChange={imageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Listing image' />
+                                            <input {...register("image", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Listing image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
@@ -123,19 +163,19 @@ const AddListing = () => {
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Banner Image</label>
-                                            <input onChange={bannerImageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                            <input {...register("banner1", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Banner Image</label>
-                                            <input onChange={bannerImageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                            <input {...register("banner2", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Banner Image</label>
-                                            <input onChange={bannerImageUploader} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                            <input {...register("banner3", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
                                         </div>
                                     </Col>
                                 </Row>

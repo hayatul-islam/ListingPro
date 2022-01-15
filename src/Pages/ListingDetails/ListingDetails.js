@@ -8,7 +8,7 @@ const ListingDetails = () => {
 
     const { listingId } = useParams();
     const [singleListing, setSingleListing] = useState({});
-    const { image, title, description, minCash, totalCash, investment, curriculum, category, bannerImg, location } = singleListing;
+    const { image, title, description, minCash, totalCash, investment, curriculum, category, bannerImg1, bannerImg2, bannerImg3, location } = singleListing;
     const form = useRef();
     const [message, setMessage] = useState('');
 
@@ -35,7 +35,7 @@ const ListingDetails = () => {
             });
 
     };
-
+    console.log(image?.slice(0, 4));
 
     return (
         <div className='py-5 listingDetails'>
@@ -43,26 +43,41 @@ const ListingDetails = () => {
                 <Row>
                     <Col xs={12} md={3}>
                         <div>
-                            <Image className='img-fluid' src={image} />
+                            {
+                                image?.slice(0, 4) === 'http' ?
+                                    <Image className='img-fluid' src={image} />
+                                    :
+                                    <Image className='img-fluid' src={`data:image/png;base64,${image}`} />
+                            }
 
                         </div>
                     </Col>
                     <Col xs={12} md={9}>
                         <Carousel>
-                            {
-                                bannerImg?.map(banner => <Carousel.Item interval={1000}>
-                                    <img
-                                        className="d-block w-100 sliderImage"
-                                        src={banner}
-                                        alt="First slide"
-                                    />
-                                </Carousel.Item>)
-                            }
-
+                            <Carousel.Item interval={1000}>
+                                <img
+                                    className="d-block w-100 sliderImage"
+                                    src={`data:image/png;base64,${bannerImg1}`}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={1000}>
+                                <img
+                                    className="d-block w-100 sliderImage"
+                                    src={`data:image/png;base64,${bannerImg2}`}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={1000}>
+                                <img
+                                    className="d-block w-100 sliderImage"
+                                    src={`data:image/png;base64,${bannerImg3}`}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
                         </Carousel>
                     </Col>
                 </Row>
-
                 <h2 className='pt-5'>{title}</h2>
                 <div className='businessInfoContainer'>
                     <div className='businessInfo'>
