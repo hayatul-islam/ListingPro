@@ -15,7 +15,7 @@ const Testimonial = () => {
             .then(res => res.json())
             .then(data => setTestimonial(data))
     }, []);
-    console.log(testimonial);
+
     return (
         <div className='py-5'>
             <Container>
@@ -42,7 +42,7 @@ const Testimonial = () => {
                     onSwiper={(swiper) => console.log(swiper)}
                 >
                     {
-                        testimonial.map(testimonial => <SwiperSlide>
+                        testimonial.map(testimonial => <SwiperSlide key={testimonial?._id}>
                             <Card className='text-center py-4'>
                                 <div className='pt-4'>
                                     <Card.Img className='testimonial-img' variant="top" src={testimonial?.image} />

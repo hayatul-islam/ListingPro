@@ -8,7 +8,6 @@ import {
   Route
 } from "react-router-dom";
 import ListingDetails from './Pages/ListingDetails/ListingDetails';
-import AddListing from './Pages/AddListing/AddListing';
 import AllListing from './Pages/AllListing/AllListing';
 import Contact from './Pages/Contact/Contact';
 import FindSearchListing from './Pages/Listings/FindSearchListing/FindSearchListing';

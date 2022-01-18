@@ -1,9 +1,8 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import useFirebase from '../../../Hooks/useFirebase';
 import './Register.css';
 

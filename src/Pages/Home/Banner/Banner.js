@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Category from '../Category/Category';
 import './Banner.css';
-import BeatLoader from "react-spinners/BeatLoader";
 import PulseLoader from "react-spinners/PulseLoader";
 
 const Banner = () => {
@@ -58,7 +57,7 @@ const Banner = () => {
                                         <select className='w-100 p-2 mb-2' {...register("category")} name="category" id="">
                                             <option value="all">Select Category</option>
                                             {
-                                                category.map(category => <option value={category?.name} >
+                                                category.map(category => <option key={category?._id} value={category?.name} >
                                                     {category?.name}
                                                 </option>)
                                             }

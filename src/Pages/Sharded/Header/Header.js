@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Image, Nav, Navbar, Button, Dropdown, Col, Row, NavDropdown } from 'react-bootstrap';
+import { Container, Image, Nav, Navbar, Dropdown, Col, Row, NavDropdown } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useFirebase from '../../../Hooks/useFirebase';
 import useListing from '../../../Hooks/useListing';
@@ -56,7 +56,7 @@ const Header = () => {
                                         <Dropdown.Item className='text-secondary fw-bold' onClick={handleAllIndustry} href="#">Views All Industries</Dropdown.Item>
                                     </Col>
                                     {
-                                        category?.map(list => <Col xs={12} md={6}>
+                                        category?.map(list => <Col key={list?._id} xs={12} md={6}>
                                             <div className='dropdownItem'>
                                                 <Dropdown.Item onClick={() => handleIndustry(list?.name)} href="#">{list?.name}</Dropdown.Item>
                                             </div>
@@ -150,7 +150,7 @@ const Header = () => {
 
                         <Dropdown className='adminBtn'>
                             <Dropdown.Toggle className='userBttn' id="dropdown-basic">
-                                <i class="fas fa-user-circle"></i>
+                                <i className="fas fa-user-circle"></i>
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>

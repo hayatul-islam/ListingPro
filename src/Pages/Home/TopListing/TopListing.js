@@ -12,16 +12,16 @@ const TopListing = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setIsLoading(true)
+        // setIsLoading(true)
         fetch('https://calm-dawn-39497.herokuapp.com/listing')
-            // fetch('listing.json')
+            // fetch('http://localhost:4040/listing')
             .then(res => res.json())
             .then(data => setListing(data))
             .catch(error => {
                 console.log(error);
             })
             .finally(() => {
-                setIsLoading(false)
+                // setIsLoading(false)
             })
     }, []);
 
