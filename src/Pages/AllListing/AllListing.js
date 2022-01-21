@@ -15,8 +15,8 @@ const AllListing = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://calm-dawn-39497.herokuapp.com/listing')
-            // fetch('listing.json')
+        // fetch('https://calm-dawn-39497.herokuapp.com/listing')
+        fetch('http://localhost:4040/listing')
             .then(res => res.json())
             .then(data => setListing(data))
             .catch(error => {
@@ -56,12 +56,7 @@ const AllListing = () => {
                                     key={listing?._id}
                                     xs={12} md={3}>
                                     <Card className='my-2' onClick={() => handleListingDetails(listing?._id)}>
-                                        {
-                                            listing?.image?.slice(0, 4) === 'http' ?
-                                                <Card.Img className='img-fluid' variant="top" src={listing?.image} />
-                                                :
-                                                <Card.Img className='img-fluid' variant="top" src={`data:image/png;base64,${listing?.image}`} />
-                                        }
+                                        <Card.Img className='img-fluid' variant="top" src={listing?.image} />
                                         <Card.Body>
                                             <Card.Title>{listing?.title}</Card.Title>
                                             <Card.Text>

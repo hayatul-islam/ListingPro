@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import useListing from '../../Hooks/useListing';
@@ -6,8 +6,11 @@ import axios from "axios";
 
 const AddListing = () => {
 
-    // const { register, handleSubmit, reset } = useForm();
     const { category } = useListing();
+    const [image, setImage] = useState(null);
+    const [bannerImg1, setBannerImg1] = useState(null);
+    const [bannerImg2, setBannerImg2] = useState(null);
+    const [bannerImg3, setBannerImg3] = useState(null);
 
     const {
         register,
@@ -15,25 +18,55 @@ const AddListing = () => {
         formState: { },
     } = useForm();
 
+    // This function will be triggered when the file field change
+    const imageChange = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setImage(e.target.files[0]);
+        }
+    };
+    const bannerImgChange1 = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setBannerImg1(e.target.files[0]);
+        }
+    };
+    const bannerImgChange2 = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setBannerImg2(e.target.files[0]);
+        }
+    };
+    const bannerImgChange3 = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setBannerImg3(e.target.files[0]);
+        }
+    };
+
+
+
 
     const onSubmit = (data, e) => {
+
+        // const formData = new FormData();
+        // formData.append("title", data.title);
+        // formData.append("investment", data.investment);
+        // formData.append("minCash", data.minCash);
+        // formData.append("totalCash", data.totalCash);
+        // formData.append("description", data.description);
+        // formData.append("image", data.image[0]);
+        // formData.append("banner1", data.banner1[0]);
+        // formData.append("banner2", data.banner2[0]);
+        // formData.append("banner3", data.banner3[0]);
+        // formData.append("category", data.category);
+        // formData.append("location", data.location);
+
+        data.image = URL.createObjectURL(image)
+        data.banner1 = URL.createObjectURL(bannerImg1);
+        data.banner2 = URL.createObjectURL(bannerImg2);
+        data.banner3 = URL.createObjectURL(bannerImg3);
+
         console.log(data);
-        const formData = new FormData();
 
-        formData.append("title", data.title);
-        formData.append("investment", data.investment);
-        formData.append("minCash", data.minCash);
-        formData.append("totalCash", data.totalCash);
-        formData.append("description", data.description);
-        formData.append("image", data.image[0]);
-        formData.append("banner1", data.banner1[0]);
-        formData.append("banner2", data.banner2[0]);
-        formData.append("banner3", data.banner3[0]);
-        formData.append("category", data.category);
-        formData.append("location", data.location);
-
-        axios.post("https://calm-dawn-39497.herokuapp.com/addListing", formData)
-            // axios.post("http://localhost:4040/addListing", formData)
+        // axios.post("https://calm-dawn-39497.herokuapp.com/addListing", data)
+        axios.post("http://localhost:4040/listing", data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('successfully')
@@ -74,7 +107,11 @@ const AddListing = () => {
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Listing Image</label>
-                                            <input {...register("image", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Listing image' />
+                                            <input
+                                                onChange={imageChange}
+                                                type="file"
+                                                className='w-100 mb-2 py-1'
+                                                placeholder='Enter Listing image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
@@ -117,19 +154,29 @@ const AddListing = () => {
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Banner Image</label>
-                                            <input {...register("banner1", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                            <input
+                                                onChange={bannerImgChange1}
+                                                type="file"
+                                                className='w-100 mb-2 py-1'
+                                                placeholder='Enter Banner image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Banner Image</label>
-                                            <input {...register("banner2", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                            <input
+                                                onChange={bannerImgChange2}
+                                                type="file" className='w-100 mb-2 py-1'
+                                                placeholder='Enter Banner image' />
                                         </div>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <div className='pb-2'>
                                             <label htmlFor="" className="mb-2">Banner Image</label>
-                                            <input {...register("banner3", { required: true })} type="file" className='w-100 mb-2 py-1' placeholder='Enter Banner image' />
+                                            <input
+                                                onChange={bannerImgChange3}
+                                                type="file" className='w-100 mb-2 py-1'
+                                                placeholder='Enter Banner image' />
                                         </div>
                                     </Col>
                                 </Row>

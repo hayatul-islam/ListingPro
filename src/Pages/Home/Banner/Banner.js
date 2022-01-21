@@ -13,8 +13,8 @@ const Banner = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://calm-dawn-39497.herokuapp.com/category')
-            // fetch('brand.json')
+        // fetch('https://calm-dawn-39497.herokuapp.com/category')
+        fetch('http://localhost:4040/category')
             .then(res => res.json())
             .then(data => setCategory(data))
             .catch(error => {
@@ -24,6 +24,8 @@ const Banner = () => {
                 setIsLoading(false)
             })
     }, []);
+
+    console.log(category)
 
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();

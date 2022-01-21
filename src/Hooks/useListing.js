@@ -8,12 +8,11 @@ const useListing = () => {
 
     useEffect(() => {
         // setIsLoading(true);
-        fetch('https://calm-dawn-39497.herokuapp.com/listing')
-            // fetch('http://localhost:4040/listing')
+        // fetch('https://calm-dawn-39497.herokuapp.com/listing')
+        fetch('http://localhost:4040/listing')
             .then(res => res.json())
             .then(data => {
-                setListing(data);
-
+                console.log(data);
             })
             .catch(error => {
                 console.log(error);
