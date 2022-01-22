@@ -5,8 +5,11 @@ import { useParams } from 'react-router-dom';
 import Listing from '../Home/Listing/Listing';
 import SearchListing from '../Listings/SearchListing/SearchListing';
 import PulseLoader from "react-spinners/PulseLoader";
+import useListing from '../../Hooks/useListing';
 
 const ByInvestmentDetails = () => {
+
+    const { apiLink } = useListing();
     const { level } = useParams();
     const [investmentLevel, setInvestmentLevel] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
@@ -14,7 +17,7 @@ const ByInvestmentDetails = () => {
 
     useEffect(() => {
         // setIsLoading(true)
-        fetch('https://aqueous-garden-52898.herokuapp.com/listing')
+        fetch(`${apiLink}/listing`)
             // fetch('listing.json')
             .then(res => res.json())
             .then(data => {

@@ -4,17 +4,18 @@ import { Col, Container, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Listing from '../Listing/Listing';
 import PulseLoader from "react-spinners/PulseLoader";
+import useListing from '../../../Hooks/useListing';
 
 const TopListing = () => {
 
+    const { apiLink } = useListing();
     const [listing, setListing] = useState([]);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         // setIsLoading(true)
-        // fetch('https://calm-dawn-39497.herokuapp.com/listing')
-        fetch('http://localhost:4040/listing')
+        fetch(`${apiLink}/listing`)
             .then(res => res.json())
             .then(data => {
                 setListing(data);

@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import axios from "axios";
+import useListing from '../../../Hooks/useListing';
 
 const AddCategory = () => {
 
     const desc = useRef();
     const [file, setFile] = useState(null);
+    const { apiLink } = useListing();
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -19,11 +21,13 @@ const AddCategory = () => {
             data.append("file", file);
             newPost.image = fileName;
             try {
-                await axios.post("http://localhost:4040/api/upload", data);
+                // await axios.post("http://localhost:4040/api/upload", data);
+                await axios.post(`${apiLink}/api/upload`, data);
             } catch (err) { }
         }
         try {
-            await axios.post("http://localhost:4040/category", newPost);
+            // await axios.post("http://localhost:4040/category", newPost);
+            await axios.post(`${apiLink}/category`, newPost);
             window.location.reload();
         } catch (err) { }
     };

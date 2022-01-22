@@ -5,9 +5,11 @@ import ReactPaginate from 'react-paginate';
 import PulseLoader from "react-spinners/PulseLoader";
 import './AllListing.css';
 import SearchListing from '../Listings/SearchListing/SearchListing';
+import useListing from '../../Hooks/useListing';
 
 const AllListing = () => {
 
+    const { apiLink } = useListing();
     const navigate = useNavigate();
     const [listing, setListing] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
@@ -15,8 +17,7 @@ const AllListing = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        // fetch('https://calm-dawn-39497.herokuapp.com/listing')
-        fetch('http://localhost:4040/listing')
+        fetch(`${apiLink}/listing`)
             .then(res => res.json())
             .then(data => setListing(data))
             .catch(error => {
@@ -56,7 +57,12 @@ const AllListing = () => {
                                     key={listing?._id}
                                     xs={12} md={3}>
                                     <Card className='my-2' onClick={() => handleListingDetails(listing?._id)}>
-                                        <Card.Img className='img-fluid' variant="top" src={listing?.image} />
+                                        {
+                                            listing?.image?.slice(0, 4) === 'http' ?
+                                                <Card.Img className='img-fluid' variant="top" src={listing?.image} />
+                                                :
+                                                <Card.Img className='img-fluid' variant="top" src={`${apiLink}/images/${listing?.image}`} />
+                                        }
                                         <Card.Body>
                                             <Card.Title>{listing?.title}</Card.Title>
                                             <Card.Text>

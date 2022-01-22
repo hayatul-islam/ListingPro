@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import useListing from '../../../Hooks/useListing';
 import './Category.css';
 
 const Category = ({ category }) => {
 
-    // console.log(category);
+    const { apiLink } = useListing();
     const navigate = useNavigate();
     const brandDetail = (title) => {
         navigate(`categoryDetail/${title}`);
@@ -15,8 +16,11 @@ const Category = ({ category }) => {
     return (
 
         <div onClick={() => brandDetail(category?.name)} className="brand-container py-4 m-2 rounded">
-            {/* <img src={category?.image} /> */}
-            <img src={`http://localhost:4040/images/${category?.image}`} />
+            {
+                category?.image?.slice(0, 4) === 'http' ?
+                    <img src={category?.image} /> :
+                    <img src={`${apiLink}/images/${category?.image}`} />
+            }
 
             <h6 className="pt-3">{category?.name}</h6>
         </div>

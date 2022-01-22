@@ -6,7 +6,7 @@ import axios from "axios";
 
 const AddListing = () => {
 
-    const { category } = useListing();
+    const { category, apiLink } = useListing();
 
     const {
         register,
@@ -14,35 +14,6 @@ const AddListing = () => {
         formState: { },
     } = useForm();
 
-
-    // const onSubmit = (data, e) => {
-
-    // const formData = new FormData();
-    // formData.append("title", data.title);
-    // formData.append("investment", data.investment);
-    // formData.append("minCash", data.minCash);
-    // formData.append("totalCash", data.totalCash);
-    // formData.append("description", data.description);
-    // formData.append("image", data.image[0]);
-    // formData.append("banner1", data.banner1[0]);
-    // formData.append("banner2", data.banner2[0]);
-    // formData.append("banner3", data.banner3[0]);
-    // formData.append("category", data.category);
-    // formData.append("location", data.location);
-
-    // console.log(data);
-
-    // // axios.post("https://calm-dawn-39497.herokuapp.com/addListing", data)
-    // axios.post("http://localhost:4040/listing", data)
-    //     .then(res => {
-    //         if (res.data.insertedId) {
-    //             alert('successfully')
-    //             e.target.reset();
-    //         }
-    //     })
-    // }
-
-    // const { investment, totalCash, minCash, description, location, curriculum, listingCategory } = useRef();
     const title = useRef()
     const investment = useRef()
     const totalCash = useRef()
@@ -79,7 +50,7 @@ const AddListing = () => {
             newPost.image = fileName;
 
             try {
-                await axios.post("http://localhost:4040/api/upload", data);
+                await axios.post(`${apiLink}/api/upload`, data);
             } catch (err) { }
         }
         if (bannerImg1) {
@@ -89,7 +60,7 @@ const AddListing = () => {
             data.append("file", bannerImg1);
             newPost.bannerImg1 = banner1;
             try {
-                await axios.post("http://localhost:4040/api/upload", data);
+                await axios.post(`${apiLink}/api/upload`, data);
             } catch (err) { }
         }
         if (bannerImg2) {
@@ -99,7 +70,7 @@ const AddListing = () => {
             data.append("file", bannerImg2);
             newPost.bannerImg2 = banner2;
             try {
-                await axios.post("http://localhost:4040/api/upload", data);
+                await axios.post(`${apiLink}/api/upload`, data);
             } catch (err) { }
         }
         if (bannerImg3) {
@@ -109,11 +80,11 @@ const AddListing = () => {
             data.append("file", bannerImg3);
             newPost.bannerImg3 = banner3;
             try {
-                await axios.post("http://localhost:4040/api/upload", data);
+                await axios.post(`${apiLink}/api/upload`, data);
             } catch (err) { }
         }
         try {
-            await axios.post("http://localhost:4040/listing", newPost);
+            await axios.post(`${apiLink}/listing`, newPost);
             window.location.reload();
         } catch (err) { }
     };

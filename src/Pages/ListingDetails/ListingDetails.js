@@ -4,9 +4,11 @@ import { useParams } from 'react-router-dom';
 import './ListingDetails.css';
 import emailjs from '@emailjs/browser';
 import PulseLoader from "react-spinners/PulseLoader";
+import useListing from '../../Hooks/useListing';
 
 const ListingDetails = () => {
 
+    const { apiLink } = useListing();
     const { listingId } = useParams();
     const [singleListing, setSingleListing] = useState({});
     const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +19,7 @@ const ListingDetails = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://aqueous-garden-52898.herokuapp.com/listing')
+        fetch(`${apiLink}/listing`)
             .then(res => res.json())
             .then(data => {
                 const findListing = data.find(listing => listing?._id === listingId);
@@ -61,7 +63,7 @@ const ListingDetails = () => {
                                         image?.slice(0, 4) === 'http' ?
                                             <Image className='img-fluid' src={image} />
                                             :
-                                            <Image className='img-fluid' src={`data:image/png;base64,${image}`} />
+                                            <Image className='img-fluid' src={`${apiLink}/images/${image}`} />
                                     }
 
                                 </div>
@@ -73,7 +75,7 @@ const ListingDetails = () => {
                                             <Carousel.Item interval={1000}>
                                                 <img
                                                     className="d-block w-100 sliderImage"
-                                                    src={`data:image/png;base64,${bannerImg1}`}
+                                                    src={`${apiLink}/images/${bannerImg1}`}
                                                     alt="First slide"
                                                 />
                                             </Carousel.Item> : ''
@@ -83,7 +85,7 @@ const ListingDetails = () => {
                                             <Carousel.Item interval={1000}>
                                                 <img
                                                     className="d-block w-100 sliderImage"
-                                                    src={`data:image/png;base64,${bannerImg2}`}
+                                                    src={`${apiLink}/images/${bannerImg2}`}
                                                     alt="First slide"
                                                 />
                                             </Carousel.Item> : ''
@@ -93,7 +95,7 @@ const ListingDetails = () => {
                                             <Carousel.Item interval={1000}>
                                                 <img
                                                     className="d-block w-100 sliderImage"
-                                                    src={`data:image/png;base64,${bannerImg3}`}
+                                                    src={`${apiLink}/images/${bannerImg3}`}
                                                     alt="First slide"
                                                 />
                                             </Carousel.Item> : ''

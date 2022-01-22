@@ -5,8 +5,11 @@ import { useParams } from 'react-router-dom';
 import Listing from '../Home/Listing/Listing';
 import SearchListing from '../Listings/SearchListing/SearchListing';
 import PulseLoader from "react-spinners/PulseLoader";
+import useListing from '../../Hooks/useListing';
 
 const SearchDetails = () => {
+
+    const { apiLink } = useListing();
     const { category, investment, searchValue } = useParams();
     const [search, setSearch] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +17,8 @@ const SearchDetails = () => {
 
     useEffect(() => {
         // setIsLoading(true)
-        fetch('https://boiling-taiga-51973.herokuapp.com/listing')
+        // fetch('https://boiling-taiga-51973.herokuapp.com/listing')
+        fetch(`${apiLink}/listing`)
             .then(res => res.json())
             .then(data => {
 

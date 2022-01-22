@@ -5,12 +5,12 @@ const useListing = () => {
     const [listing, setListing] = useState([]);
     const [category, cubCategory] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const apiLink = 'http://localhost:4040';
+    // const apiLink = 'http://localhost:4040';
+    const apiLink = 'https://glacial-forest-56456.herokuapp.com';
 
     useEffect(() => {
         // setIsLoading(true);
-        // fetch('https://calm-dawn-39497.herokuapp.com/listing')
-        fetch('http://localhost:4040/listing')
+        fetch(`${apiLink}/listing`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -25,7 +25,7 @@ const useListing = () => {
 
     useEffect(() => {
         // setIsLoading(true)
-        fetch('https://calm-dawn-39497.herokuapp.com/category')
+        fetch(`${apiLink}/category`)
             .then(res => res.json())
             .then(data => cubCategory(data))
             .catch(error => {

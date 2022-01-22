@@ -5,23 +5,25 @@ import { useNavigate } from 'react-router-dom';
 import Category from '../Category/Category';
 import './Banner.css';
 import PulseLoader from "react-spinners/PulseLoader";
+import useListing from '../../../Hooks/useListing';
 
 const Banner = () => {
+
+    const { apiLink } = useListing();
     const [category, setCategory] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
 
     useEffect(() => {
-        setIsLoading(true)
-        // fetch('https://calm-dawn-39497.herokuapp.com/category')
-        fetch('http://localhost:4040/category')
+        // setIsLoading(true)
+        fetch(`${apiLink}/category`)
             .then(res => res.json())
             .then(data => setCategory(data))
             .catch(error => {
                 console.log(error);
             })
             .finally(() => {
-                setIsLoading(false)
+                // setIsLoading(false)
             })
     }, []);
 
