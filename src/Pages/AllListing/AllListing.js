@@ -16,7 +16,7 @@ const AllListing = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setIsLoading(true)
+        // setIsLoading(true)
         fetch(`${apiLink}/listing`)
             .then(res => res.json())
             .then(data => setListing(data))
@@ -24,7 +24,7 @@ const AllListing = () => {
                 console.log(error);
             })
             .finally(() => {
-                setIsLoading(false)
+                // setIsLoading(false)
             })
     }, []);
 
