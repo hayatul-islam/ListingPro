@@ -17,7 +17,7 @@ const CategoryDetail = () => {
     console.log(typeof brandTitle);
 
     useEffect(() => {
-        setIsLoading(true)
+        // setIsLoading(true)
         fetch('https://aqueous-garden-52898.herokuapp.com/listing')
             // fetch('listing.json')
             .then(res => res.json())
@@ -29,7 +29,7 @@ const CategoryDetail = () => {
                 console.log(error);
             })
             .finally(() => {
-                setIsLoading(false)
+                // setIsLoading(false)
             })
     }, []);
 
