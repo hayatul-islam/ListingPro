@@ -5,6 +5,7 @@ const useListing = () => {
     const [listing, setListing] = useState([]);
     const [category, cubCategory] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const apiLink = 'http://localhost:4040';
 
     useEffect(() => {
         // setIsLoading(true);
@@ -38,7 +39,8 @@ const useListing = () => {
     return {
         listing,
         category,
-        isLoading
+        isLoading,
+        apiLink
     }
 };
 

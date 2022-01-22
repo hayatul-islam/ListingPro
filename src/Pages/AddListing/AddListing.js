@@ -52,9 +52,7 @@ const AddListing = () => {
     const curriculum = useRef()
     const listingCategory = useRef()
 
-    console.log(title);
-
-    const [file, setCategoryImg] = useState(null);
+    const [categoryImg, setCategoryImg] = useState(null);
     const [bannerImg1, setBannerImg1] = useState(null);
     const [bannerImg2, setBannerImg2] = useState(null);
     const [bannerImg3, setBannerImg3] = useState(null);
@@ -72,31 +70,44 @@ const AddListing = () => {
             category: listingCategory.current.value,
             curriculum: curriculum.current.value,
         };
-        if (file && bannerImg1 && bannerImg2 && bannerImg3) {
+        if (categoryImg) {
+
             const data = new FormData();
-
-            const fileName = Date.now() + file.name;
-            const banner1 = Date.now() + bannerImg1.name;
-            const banner2 = Date.now() + bannerImg2.name;
-            const banner3 = Date.now() + bannerImg3.name;
-
+            const fileName = Date.now() + categoryImg.name;
             data.append("name", fileName);
-            data.append("file", file);
-
-            data.append("name", banner1);
-            data.append("bannerImg1", bannerImg1);
-
-            data.append("name", banner2);
-            data.append("bannerImg2", bannerImg2);
-
-            data.append("name", banner3);
-            data.append("bannerImg3", bannerImg3);
-
+            data.append("file", categoryImg);
             newPost.image = fileName;
-            newPost.bannerImg1 = banner1;
-            newPost.bannerImg2 = banner2;
-            newPost.bannerImg3 = banner3;
 
+            try {
+                await axios.post("http://localhost:4040/api/upload", data);
+            } catch (err) { }
+        }
+        if (bannerImg1) {
+            const data = new FormData();
+            const banner1 = Date.now() + bannerImg1.name;
+            data.append("name", banner1);
+            data.append("file", bannerImg1);
+            newPost.bannerImg1 = banner1;
+            try {
+                await axios.post("http://localhost:4040/api/upload", data);
+            } catch (err) { }
+        }
+        if (bannerImg2) {
+            const data = new FormData();
+            const banner2 = Date.now() + bannerImg2.name;
+            data.append("name", banner2);
+            data.append("file", bannerImg2);
+            newPost.bannerImg2 = banner2;
+            try {
+                await axios.post("http://localhost:4040/api/upload", data);
+            } catch (err) { }
+        }
+        if (bannerImg3) {
+            const data = new FormData();
+            const banner3 = Date.now() + bannerImg3.name;
+            data.append("name", banner3);
+            data.append("file", bannerImg3);
+            newPost.bannerImg3 = banner3;
             try {
                 await axios.post("http://localhost:4040/api/upload", data);
             } catch (err) { }

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import useListing from '../../../Hooks/useListing';
 
 const Listing = ({ listing }) => {
 
+    const { apiLink } = useListing();
     const navigate = useNavigate();
     const handleListingDetails = id => {
         navigate(`/listingDetails/${id}`)
@@ -15,9 +17,10 @@ const Listing = ({ listing }) => {
         <Card className='my-2' onClick={() => handleListingDetails(listing?._id)}>
             {
                 listing?.image?.slice(0, 4) === 'http' ?
+
                     <Card.Img className='img-fluid' variant="top" src={listing?.image} />
                     :
-                    <Card.Img className='img-fluid' variant="top" src={`data:image/png;base64,${listing?.image}`} />
+                    <Card.Img className='img-fluid' variant="top" src={`${apiLink}/images/${listing?.image}`} />
             }
 
             <Card.Body>
